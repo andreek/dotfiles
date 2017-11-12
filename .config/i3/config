@@ -169,7 +169,8 @@ assign [class="(?i)deja-dup"] workspace backup
 #custom
 bindsym $mod+space exec rofi -show run
 
-exec_always /usr/bin/polybar -r bottom
-exec_always /usr/bin/polybar -r bottom2
-exec /usr/bin/pulseaudio --start
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec_always --no-startup-id /usr/bin/polybar -r bottom
+exec_always --no-startup-id /usr/bin/polybar -r bottom2
+exec --no-startup-id /usr/bin/clipit
+exec --no-startup-id /usr/bin/pulseaudio --start
+exec --no-startup-id /usr/lib/deja-dup/deja-dup-monitor
