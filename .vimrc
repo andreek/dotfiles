@@ -15,10 +15,6 @@ set clipboard=unnamed
 set mouse=a
 " Always show status line
 set laststatus=2
-" Syntastic highlight
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 " Per project vimrc
 set exrc
 " Source vimrc files after editing
@@ -54,6 +50,11 @@ set foldlevel=9999
 " Syntastic
 " ------------------------------------------------------------------------------
 let g:syntastic_always_populate_loc_list = 1
+
+" ------------------------------------------------------------------------------
+" Powerline
+" ------------------------------------------------------------------------------
+" let g:Powerline_symbols = 'fancy'
 
 " ------------------------------------------------------------------------------
 " Styling
