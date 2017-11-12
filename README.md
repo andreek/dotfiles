@@ -5,7 +5,7 @@ finally we made it!
 ## features
 
  * i3
- * polybar
+ * polybar (ttf-font-awesome)
  * vim
 
 ## install
