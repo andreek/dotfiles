@@ -261,7 +261,7 @@ accumulate-stats = true
 ;   <ramp-signal>
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>
-label-connected = %local_ip% (%signal% %essid%)
+label-connected = %local_ip% (%signal%% %essid%)
 label-connected-foreground = ${colors.green}
 label-disconnected = not connected
 label-disconnected-foreground = ${colors.alert}
