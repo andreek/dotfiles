@@ -9,3 +9,4 @@ ln -s $REPO/.config/polybar/config $HOME/.config/polybar/config
 ln -s $REPO/.config/polybar/pavolume.sh $HOME/.config/polybar/pavolume.sh
 ln -s $REPO/.vim $HOME/.vim
 ln -s $REPO/.vimrc $HOME/.vimrc
+ln -s $REPO/.Xdefaults $HOME/.Xdefaults

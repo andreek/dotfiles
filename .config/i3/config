@@ -168,6 +168,8 @@ assign [class="(?i)deja-dup"] workspace backup
 
 #custom
 bindsym $mod+space exec rofi -show run
+bindsym $mod+p exec rofi -show ssh
+bindsym $mod+t exec rofi -show window
 
 exec_always --no-startup-id /usr/bin/polybar -r bottom
 exec_always --no-startup-id /usr/bin/polybar -r bottom2
