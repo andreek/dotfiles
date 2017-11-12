@@ -236,7 +236,6 @@ ws-icon-6 = 7
 ws-icon-7 = backup;
 ws-icon-8 = gaming;
 
-
 [module/cpu]
 type = internal/cpu
 interval = 20
@@ -256,70 +255,16 @@ label = %percentage_used%%
 [module/wifi]
 type = internal/network
 interface = wlp3s0
-
-; Seconds to sleep between updates
-; Default: 1
 interval = 3.0
-
-; Test connectivity every Nth update
-; A value of 0 disables the feature
-; NOTE: Experimental (needs more testing)
-; Default: 0
-;ping-interval = 3
-
-; @deprecated: Define min width using token specifiers (%downspeed:min% and %upspeed:min%)
-; Minimum output width of upload/download rate
-; Default: 3
 udspeed-minwidth = 5
-
-; Accumulate values from all interfaces
-; when querying for up/downspeed rate
-; Default: false
 accumulate-stats = true
-
-;   <label-connected> (default)
 ;   <ramp-signal>
-format-connected = <ramp-signal> <label-connected>
-
-; Available tags:
-;   <label-disconnected> (default)
+format-connected = <label-connected>
 format-disconnected = <label-disconnected>
-
-; Available tokens:
-;   %ifname%    [wireless+wired]
-;   %local_ip%  [wireless+wired]
-;   %essid%     [wireless]
-;   %signal%    [wireless]
-;   %upspeed%   [wireless+wired]
-;   %downspeed% [wireless+wired]
-;   %linkspeed% [wired]
-; Default: %ifname% %local_ip%
-label-connected = %local_ip% (%essid%)
+label-connected = %local_ip% (%signal% %essid%)
 label-connected-foreground = ${colors.green}
-
-; Available tokens:
-;   %ifname%    [wireless+wired]
-; Default: (none)
 label-disconnected = not connected
-label-disconnected-foreground = #66ffffff
-
-; Available tokens:
-;   %ifname%    [wireless+wired]
-;   %local_ip%  [wireless+wired]
-;   %essid%     [wireless]
-;   %signal%    [wireless]
-;   %linkspeed% [wired]
-; Default: (none)
-;label-packetloss = %essid%
-;label-packetloss-foreground = #eefafafa
-
-; Only applies if <ramp-signal> is used
-ramp-signal-0 = 😱
-ramp-signal-1 = 😠
-ramp-signal-2 = 😒
-ramp-signal-3 = 😊
-ramp-signal-4 = 😃
-ramp-signal-5 = 😈
+label-disconnected-foreground = ${colors.alert}
 
 [module/eth]
 type = internal/network
@@ -367,7 +312,6 @@ ramp-1 =
 ramp-2 =
 ramp-foreground = ${colors.foreground-alt}
 
-
 [module/lock]
 type = custom/text
 content = ""
@@ -387,7 +331,6 @@ format-spacing = 1
 
 label-open = ""
 label-open-foreground = #720000
-;${colors.foreground-alt}
 label-close = ""
 label-close-foreground = #720000
 label-separator = 
@@ -409,11 +352,7 @@ menu-2-0-exec = poweroff
 type = custom/text
 content = " | "
 content-foreground = ${colors.grayout}
-;[module/redshift]
-;type = custom/script
-;interval = 5
-;exec = ~/.config/polybar/redshift.sh
-;
+
 [module/pavolume]
 type = custom/script
 tail = true
@@ -423,5 +362,4 @@ click-right = exec pavucontrol
 click-left = ~/.config/polybar/pavolume.sh --togmute
 scroll-up = ~/.config/polybar/pavolume.sh --up
 scroll-down = ~/.config/polybar/pavolume.sh --down
-
 
