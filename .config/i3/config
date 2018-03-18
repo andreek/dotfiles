@@ -140,6 +140,7 @@ bindsym $mod+p exec rofi -show ssh
 bindsym $mod+Tab exec rofi -show window
 
 exec_always --no-startup-id $HOME/.config/polybar/init.sh
+exec --no-startup-id /usr/bin/twmnd
 exec --no-startup-id /usr/bin/lxpolkit
 exec --no-startup-id /usr/bin/xbindkeys
 exec --no-startup-id /usr/bin/clipit
