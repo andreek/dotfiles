@@ -5,7 +5,7 @@ finally we made it!
 ## arch dependencies
 
 ```shell
-pacaur -S rofi i3 i3lock ttf-font-awesome polybar vim clipit deja-dup pulseaudio
+trizen -S rofi i3 i3lock ttf-font-awesome polybar vim clipit deja-dup pulseaudio feh stretchly
 ```
 
 ## features

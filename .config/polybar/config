@@ -1,17 +1,11 @@
 ;=====================================================
 ;
-;   To learn more about how to configure Polybar
-;   go to https://github.com/jaagr/polybar
-;
-;   The README contains alot of information
+;   Polybar
 ;
 ;=====================================================
-
 [colors]
-;background = ${xrdb:color0:#222}
 background = #CC070e14
 background-alt = #CC070e14
-;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #dfdfdf
 grayout = #2a2a2a
@@ -19,41 +13,16 @@ primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 green = #90EE90
+gold = #996515
+lightRed = #720000
 
-[bar/bottom]
-monitor = ${env:MONITOR:DVI-D-0}
-
-width = 100%
-height = 30
-radius = 0
-fixed-center = true 
-
-bottom = true
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = 0
-line-color = #f00
-
-border-size = 0
-border-color = #00000000
-
-padding-left = 2
-padding-right = 2
-
-module-margin-left = 0
-module-margin-right = 0
-
-font-0 = Verdana:pixelsize=12;3
-font-1 = FontAwesome:style=Regular:pixelsize=12;3
-
-modules-left = temperature separator filesystem separator xwindow
-modules-center = i3 
-modules-right = date separator pavolume separator lock separator powermenu
-
-[bar/bottom2]
-monitor = ${env:MONITOR:DVI-I-1}
+;=====================================================
+;
+; BARS
+;
+;=====================================================
+[bar/plug]
+monitor = ${env:MONITOR:}
 
 width = 100%
 height = 30
@@ -80,14 +49,78 @@ module-margin-right = 0
 font-0 = Verdana:pixelsize=12;3
 font-1 = FontAwesome:style=Regular:pixelsize=12;3
 
-modules-left = tux separator eth separator memory separator cpu 
+modules-left = tux
+modules-center = i3
+modules-right =
+
+[bar/mainLeft]
+monitor = ${env:MONITOR:DP1-1}
+
+width = 100%
+height = 30
+radius = 0
+fixed-center = true 
+
+bottom = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 0
+line-color = #f00
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 2
+padding-right = 2
+
+module-margin-left = 0
+module-margin-right = 0
+
+font-0 = Verdana:pixelsize=12;3
+font-1 = FontAwesome:style=Regular:pixelsize=12;3
+
+modules-left = tux separator temperature separator cpu separator memory separator filesystem separator eth
+modules-center = i3
+modules-right = xwindow
+
+[bar/main]
+monitor = ${env:MONITOR:DP1-2}
+
+width = 100%
+height = 30
+radius = 0
+fixed-center = true 
+
+bottom = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 0
+line-color = #f00
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 2
+padding-right = 2
+
+module-margin-left = 0
+module-margin-right = 0
+
+font-0 = Verdana:pixelsize=12;3
+font-1 = FontAwesome:style=Regular:pixelsize=12;3
+
+modules-left = tux separator battery separator pavolume
 modules-center = i3 
-modules-right = date separator pavolume separator lock separator powermenu
+modules-right =  date separator lock separator powermenu
 
 tray-position = right
 tray-padding = 1
 
-[bar/macbook]
+[bar/x1c6]
 monitor = ${env:MONITOR:eDP1}
 
 width = 100%
@@ -122,72 +155,47 @@ modules-right = date separator pavolume separator lock separator powermenu
 tray-position = right
 tray-padding = 1
 
+;=====================================================
+;
+; MODULES
+;
+;=====================================================
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:100:...%
+label = %title% 
+label-maxlen = 50
 
 [module/filesystem]
 type = internal/fs
-interval = 25
+interval = 500
 mount-0 = /
-mount-1 = /home
 
 spacing = 2
-format-mounted = <label-mounted>
+format-mounted =  <label-mounted>
 label-mounted = %mountpoint% %percentage_used%%
 label-unmounted = %mountpoint% -
 label-unmounted-foreground = ${colors.foreground-alt}
 
 [module/battery]
 type = internal/battery
-
-; This is useful in case the battery never reports 100% charge
 full-at = 99
-
-; Use the following command to list batteries and adapters:
-; $ ls -1 /sys/class/power_supply/
 battery = BAT0
-adapter = ADP1
-
-; If an inotify event haven't been reported in this many
-; seconds, manually poll for new values.
-;
-; Needed as a fallback for systems that don't report events
-; on sysfs/procfs.
-;
-; Disable polling by setting the interval to 0.
-;
-; Default: 5
+adapter = AC
 poll-interval = 5
-label-discharging =  %percentage%%
+time-format = %M
 
-[module/bspwm]
-type = internal/bspwm
+format-discharging = <ramp-capacity> <label-discharging>
+format-charging =  <label-charging>
 
-label-focused = %icon% %index%
-label-focused-background = #186b58
-label-focused-underline= ${colors.primary}
-label-focused-padding = 2
+label-full =  FULL
+label-charging = %percentage%%
+label-discharging = %percentage%%
 
-label-occupied = %icon% %index%
-label-occupied-padding = 2
-
-label-urgent = %icon% %index%!
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
-
-label-empty = %icon% %index%
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 2
-
-ws-icon-default = ♟
-ws-icon-0 = 1
-ws-icon-1 = web;♟
-ws-icon-2 = 3;
-ws-icon-3 = 4
-ws-icon-4 = 5
-ws-icon-5 = 6
-ws-icon-6 = 7
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
 
 [module/i3]
 type = internal/i3
@@ -197,33 +205,32 @@ wrapping-scroll = false
 
 reverse-scroll = false
 
-; Only show workspaces on the same output as the bar
 pin-workspaces = true
 
 label-mode-padding = 4
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
-; focused = Active workspace on focused monitor
 label-focused = %icon% %name%
-label-focused-background = ${module/bspwm.label-focused-background}
+label-focused-background = #186b58
 label-focused-underline = #ffffff
-label-focused-padding = ${module/bspwm.label-focused-padding}
+label-focused-padding = 2
 
-; unfocused = Inactive workspace on any monitor
 label-unfocused = %icon% %name%
-label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+label-unfocused-padding = 2
 
-; visible = Active workspace on unfocused monitor
 label-visible = %icon% %name%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
-; urgent = Workspace with urgency hint set
 label-urgent =  %icon% %name%
-label-urgent-background = ${module/bspwm.label-urgent-background}
-label-urgent-padding = ${module/bspwm.label-urgent-padding}
+label-urgent-background =  ${colors.alert}
+label-urgent-padding = 2
+
+label-empty = %icon% %index%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 2
 
 ws-icon-default = ♟
 ws-icon-0 = 1
@@ -254,11 +261,10 @@ label = %percentage_used%%
 
 [module/wifi]
 type = internal/network
-interface = wlp3s0
+interface = wlp2s0
 interval = 3.0
 udspeed-minwidth = 5
 accumulate-stats = true
-;   <ramp-signal>
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>
 label-connected = %local_ip% (%signal%% %essid%)
@@ -268,16 +274,15 @@ label-disconnected-foreground = ${colors.alert}
 
 [module/eth]
 type = internal/network
-interface = enp3s0
+interface = enp0s31f6
 interval = 5.0
 
 format-connected-underline = 
-label-connected = %local_ip%@%linkspeed%
+label-connected =  %local_ip%@%linkspeed%
 label-connected-foreground = ${colors.green}
 
 format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-label-disconnected = %ifname%: no connection
+label-disconnected =  %ifname%: no connection
 label-disconnected-foreground = ${colors.alert}
 
 [module/date]
@@ -315,7 +320,7 @@ ramp-foreground = ${colors.foreground-alt}
 [module/lock]
 type = custom/text
 content = ""
-content-foreground = #996515
+content-foreground = ${colors.gold}
 click-left = /usr/bin/i3lock -c 000000
 click-middle =  /usr/bin/i3lock -c 000000
 click-right = /usr/bin/i3lock -c 000000
@@ -330,9 +335,9 @@ type = custom/menu
 format-spacing = 1
 
 label-open = ""
-label-open-foreground = #720000
+label-open-foreground =  ${colors.lightRed}
 label-close = ""
-label-close-foreground = #720000
+label-close-foreground = ${colors.lightRed}
 label-separator = 
 label-separator-foreground = ${colors.foreground-alt}
 
