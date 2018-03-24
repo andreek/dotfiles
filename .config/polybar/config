@@ -308,8 +308,8 @@ format-warn = <ramp> <label-warn>
 format-warn-foreground = ${colors.alert}
 format-warn-underline = ${self.format-underline}
 
-label = %temperature%
-label-warn = %temperature%
+label = %temperature-c%
+label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
 
 ramp-0 =
