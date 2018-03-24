@@ -133,6 +133,7 @@ assign [class="(?i)firefox"] workspace web
 assign [class="(?i)Spotify"] workspace spotify
 assign [class="(?i)thunderbird"] workspace messages
 assign [class="(?i)teamspeak3"] workspace messages
+assign [title="(?i)Back Up"] workspace backup
 
 #custom
 bindsym $mod+space exec rofi -show run
