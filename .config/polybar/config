@@ -46,7 +46,7 @@ padding-right = 2
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = Verdana:pixelsize=12;3
+font-0 = Pango:pixelsize=12;3
 font-1 = FontAwesome:style=Regular:pixelsize=12;3
 
 modules-left = tux
@@ -78,12 +78,12 @@ padding-right = 2
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = Verdana:pixelsize=12;3
+font-0 = Pango:pixelsize=12;3
 font-1 = FontAwesome:style=Regular:pixelsize=12;3
 
 modules-left = tux separator temperature separator cpu separator memory separator filesystem separator eth
 modules-center = i3
-modules-right = xwindow
+modules-right = xwindow separator powermenu
 
 [bar/main]
 monitor = ${env:MONITOR:DP1-2}
@@ -110,7 +110,7 @@ padding-right = 2
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = Verdana:pixelsize=12;3
+font-0 = Pango:pixelsize=12;3
 font-1 = FontAwesome:style=Regular:pixelsize=12;3
 
 modules-left = tux separator battery separator pavolume
@@ -145,7 +145,7 @@ padding-right = 2
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = Verdana:pixelsize=12;3
+font-0 = Pango:pixelsize=12;3
 font-1 = FontAwesome:style=Regular:pixelsize=12;3
 
 modules-left = tux separator wifi separator battery
