@@ -49,7 +49,16 @@ set foldlevel=9999
 " ------------------------------------------------------------------------------
 " Syntastic
 " ------------------------------------------------------------------------------
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
 let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe = 'eslint @%'
 
 " ------------------------------------------------------------------------------
 " Powerline
@@ -62,9 +71,9 @@ let g:syntastic_always_populate_loc_list = 1
 " Syntax highlighting
 syntax on
 " Color Scheme
-colorscheme desert256
+"colorscheme desert256
 "colorscheme summerfruit256
-"colorscheme wombat256
+colorscheme wombat256
 " Show Line numbers
 set number
 " Visual line marking 80 characters (vim 7.3)
@@ -86,10 +95,9 @@ autocmd BufEnter * set listchars=tab:▸\ ,eol:¬
 " Spaces instead of tabs
 set expandtab
 " 2 spaces for each tab
-set tabstop=2
-" 2 spaces for indention
-set shiftwidth=2
-
+" set tabstop=4
+"" 2 spaces for indention
+" set shiftwidth=4
 
 " ------------------------------------------------------------------------------
 " godef
@@ -174,6 +182,11 @@ autocmd BufEnter *.ds set filetype=javascript
 autocmd BufEnter *.json set filetype=javascript
 autocmd BufEnter *.isml set filetype=html
 autocmd BufEnter *.ejs set filetype=html
+
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd Filetype typescript setlocal ts=2 sts=2 sw=2
 
 " Super replace
 command! -nargs=* Argdo noautocmd silent argdo <args>

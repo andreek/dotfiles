@@ -12,3 +12,5 @@ for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
   fi
   MONITOR=$m polybar --reload $bar &
 done
+killall pulseaudio
+pulseaudio --start

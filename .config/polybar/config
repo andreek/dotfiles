@@ -1,4 +1,4 @@
-;=====================================================
+;aavailable vailable =====================================================
 ;
 ;   Polybar
 ;
@@ -15,6 +15,7 @@ alert = #bd2c40
 green = #90EE90
 gold = #996515
 lightRed = #720000
+highlight= #6677e1
 
 ;=====================================================
 ;
@@ -81,7 +82,7 @@ module-margin-right = 0
 font-0 = Pango:pixelsize=12;3
 font-1 = FontAwesome:style=Regular:pixelsize=12;3
 
-modules-left = tux separator temperature separator cpu separator memory separator filesystem separator eth
+modules-left = tux separator temperature separator cpu separator memory separator filesystem separator wifi separator eth
 modules-center = i3
 modules-right = xwindow separator powermenu
 
@@ -113,7 +114,7 @@ module-margin-right = 0
 font-0 = Pango:pixelsize=12;3
 font-1 = FontAwesome:style=Regular:pixelsize=12;3
 
-modules-left = tux separator battery separator pavolume
+modules-left = tux pkgupdates-available separator battery separator
 modules-center = i3 
 modules-right =  date separator lock separator powermenu
 
@@ -148,9 +149,9 @@ module-margin-right = 0
 font-0 = Pango:pixelsize=12;3
 font-1 = FontAwesome:style=Regular:pixelsize=12;3
 
-modules-left = tux separator wifi separator battery
+modules-left = tux pkgupdates-available separator wifi separator battery
 modules-center = i3 
-modules-right = date separator pavolume separator lock separator powermenu
+modules-right = date separator separator lock separator powermenu
 
 tray-position = right
 tray-padding = 1
@@ -187,8 +188,12 @@ time-format = %M
 format-discharging = <ramp-capacity> <label-discharging>
 format-charging =  <label-charging>
 
-label-full =  FULL
+label-full =  100%
+label-full-foreground = ${colors.green}
+
 label-charging = %percentage%%
+label-charging-foreground = ${colors.gold}
+
 label-discharging = %percentage%%
 
 ramp-capacity-0 = 
@@ -232,16 +237,17 @@ label-empty = %icon% %index%
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 2
 
-ws-icon-default = ♟
+ws-icon-default = 
 ws-icon-0 = 1
 ws-icon-1 = messages;
 ws-icon-2 = web;
 ws-icon-3 = dev;
 ws-icon-4 = server;
-ws-icon-5 = spotify;
-ws-icon-6 = 7
+ws-icon-5 = monitor;
+ws-icon-6 = spotify;
 ws-icon-7 = backup;
-ws-icon-8 = gaming;
+ws-icon-8 = private;
+ws-icon-9 = 10
 
 [module/cpu]
 type = internal/cpu
@@ -267,10 +273,10 @@ udspeed-minwidth = 5
 accumulate-stats = true
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>
-label-connected = %local_ip% (%signal%% %essid%)
+label-connected =  %local_ip% (%signal%% %essid%)
 label-connected-foreground = ${colors.green}
-label-disconnected = not connected
-label-disconnected-foreground = ${colors.alert}
+label-disconnected = 
+label-disconnected-foreground = ${colors.lightRed}
 
 [module/eth]
 type = internal/network
@@ -328,6 +334,36 @@ click-right = /usr/bin/i3lock -c 000000
 [module/tux]
 type = custom/text
 content = ""
+content-foreground = ${colors.highlight}
+format-padding = 2
+
+[module/pkgupdates-available]
+type = custom/script
+; Available tokens:
+;   %counter%
+; Command to be executed (using "/usr/bin/env sh -c [command]")
+exec = "/home/andree/.local/bin/updates.sh"
+; Will the script output continous content?
+; Default: false
+tail = false
+
+; Seconds to sleep between updates
+; Default: 2 (0 if `tail = true`)
+interval = 300
+
+label = %output%
+
+; Available tags:
+;   <output> - deprecated
+;   <label> (default)
+format = <label>
+format-background = ${colors.background}
+format-foreground = ${colors.highlight}
+format-padding = 1
+
+; Available tokens:
+;   %output%
+; Default: %output%
 
 [module/powermenu]
 type = custom/menu
@@ -358,13 +394,13 @@ type = custom/text
 content = " | "
 content-foreground = ${colors.grayout}
 
-[module/pavolume]
-type = custom/script
-tail = true
-label = %output%
-exec = ~/.config/polybar/pavolume.sh --listen
-click-right = exec pavucontrol
-click-left = ~/.config/polybar/pavolume.sh --togmute
-scroll-up = ~/.config/polybar/pavolume.sh --up
-scroll-down = ~/.config/polybar/pavolume.sh --down
+#[module/pavolume]
+#type = custom/script
+#tail = true
+#label = %output%
+#exec = ~/.config/polybar/pavolume.sh --listen
+#click-right = exec pavucontrol
+#click-left = ~/.config/polybar/pavolume.sh --togmute
+#scroll-up = ~/.config/polybar/pavolume.sh --up
+#scroll-down = ~/.config/polybar/pavolume.sh --down
 
