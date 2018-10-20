@@ -129,7 +129,7 @@ bindsym $mod+r mode "resize"
 #}
 assign [class="(?i)Steam"] workspace gaming
 assign [class="(?i)csgo"] workspace gaming
-assign [class="(?i)firefox"] workspace private
+assign [class="(?i)firefox"] workspace web
 assign [class="(?i)chromium"] workspace web
 assign [title="(?i)Spotify"] workspace spotify
 assign [class="(?i)thunderbird"] workspace messages
