@@ -37,13 +37,9 @@ endif
 set completeopt=menuone,longest
 " Ignore certain things
 set wildignore+=.git,*/node_modules/*
-" Fix mouse clicks in terminal
-" see http://stackoverflow.com/questions/7000960/vim-mouse-problem
-if has("mouse_sgr")
-    set ttymouse=sgr
-else
+if !has('nvim')
     set ttymouse=xterm2
-end
+endif
 set foldlevel=9999
 
 " ------------------------------------------------------------------------------
