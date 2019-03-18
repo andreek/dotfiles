@@ -16,6 +16,7 @@ green = #90EE90
 gold = #996515
 lightRed = #720000
 highlight= #6677e1
+tray = #3d3d3d
 
 ;=====================================================
 ;
@@ -120,6 +121,7 @@ modules-right =  date separator lock separator powermenu
 
 tray-position = right
 tray-padding = 1
+tray-background = ${colors.tray}
 
 [bar/x1c6]
 monitor = ${env:MONITOR:eDP1}
@@ -155,6 +157,7 @@ modules-right = date separator battery separator lock separator powermenu
 
 tray-position = right
 tray-padding = 1
+tray-background = ${color.tray}
 
 ;=====================================================
 ;

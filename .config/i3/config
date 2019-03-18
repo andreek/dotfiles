@@ -141,12 +141,12 @@ bindsym $mod+space exec rofi -show run
 bindsym $mod+p exec rofi -show ssh
 bindsym $mod+Tab exec rofi -show window
 
-exec killall pulseaudio
 exec_always --no-startup-id $HOME/.config/polybar/init.sh
+exec --no-startup-id /usr/bin/feh --bg-scale $HOME/docs/misc/wallpaper.png
+exec --no-startup-id /usr/bin/nm-applet
 exec --no-startup-id /usr/bin/twmnd
 exec --no-startup-id /usr/bin/xbindkeys
 exec --no-startup-id /usr/bin/clipit
-exec --no-startup-id /usr/bin/nm-applet
-exec --no-startup-id /usr/bin/pa-applet
-exec --no-startup-id /usr/bin/feh --bg-scale $HOME/docs/misc/wallpaper.png
 exec --no-startup-id /usr/lib/deja-dup/deja-dup-monitor
+exec --no-startup-id /usr/bin/pulseaudio --start
+exec --no-startup-id /usr/bin/pa-applet

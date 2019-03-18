@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 killall polybar
-kill -9 $(ps aux | grep 'pavolume.sh' | awk '{print $2}')
 for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
   bar="plug"
   if [[ "$m" == "eDP1" ]]; then
@@ -12,5 +11,3 @@ for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
   fi
   MONITOR=$m polybar --reload $bar &
 done
-killall pulseaudio
-pulseaudio --start
