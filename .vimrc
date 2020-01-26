@@ -67,9 +67,10 @@ let g:syntastic_javascript_eslint_exe = 'eslint @%'
 " Syntax highlighting
 syntax on
 " Color Scheme
-"colorscheme desert256
-"colorscheme summerfruit256
-colorscheme wombat256
+" colorscheme desert256
+" colorscheme summerfruit256
+colorscheme gruvbox
+"colorscheme wombat256mod
 " Show Line numbers
 set number
 " Visual line marking 80 characters (vim 7.3)

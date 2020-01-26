@@ -56,7 +56,7 @@ modules-center = i3
 modules-right =
 
 [bar/mainLeft]
-monitor = ${env:MONITOR:DP1-1}
+monitor = ${env:MONITOR:DVI-D-0}
 
 width = 100%
 height = 30
@@ -85,10 +85,10 @@ font-1 = FontAwesome:style=Regular:pixelsize=12;3
 
 modules-left = tux separator temperature separator cpu separator memory separator filesystem
 modules-center = i3
-modules-right = xwindow separator powermenu
+modules-right = xwindow separator date separator powermenu
 
 [bar/main]
-monitor = ${env:MONITOR:DP1-2}
+monitor = ${env:MONITOR:DVI-I-1}
 
 width = 100%
 height = 30
@@ -283,7 +283,7 @@ label-disconnected-foreground = ${colors.lightRed}
 
 [module/eth]
 type = internal/network
-interface = enp0s31f6
+interface = eno1
 interval = 5.0
 
 format-connected-underline = 
@@ -296,10 +296,10 @@ label-disconnected-foreground = ${colors.alert}
 
 [module/date]
 type = internal/date
-interval = 5
+interval = 1
 
 date = " %d.%m.%y"
-time = %I:%M %p
+time = %I:%M:%S
 
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline =
@@ -309,6 +309,7 @@ label = %date%  %time%
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
+hwmon-path=/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
 warn-temperature = 60
 
 format = <ramp> <label>

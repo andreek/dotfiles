@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-REPO=/home/andree/dev/repos/dotfiles
+REPO=/home/andree/dotfiles
 HOME=/home/andree
 echo "initialising dotfiles.."
 mkdir -p $HOME/.config/i3/

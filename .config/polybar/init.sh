@@ -2,11 +2,9 @@
 killall polybar
 for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
   bar="plug"
-  if [[ "$m" == "eDP1" ]]; then
-    bar="x1c6"
-  elif [[ "$m" == "DP1-2" ]]; then
+  if [[ "$m" == "DVI-I-1" ]]; then
     bar="main"
-  elif [[ "$m" == "DP1-1" ]]; then
+  elif [[ "$m" == "DVI-D-0" ]]; then
     bar="mainLeft"
   fi
   MONITOR=$m polybar --reload $bar &
