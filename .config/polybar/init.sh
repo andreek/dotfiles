@@ -1,13 +1,29 @@
 #!/usr/bin/env bash
-killall polybar
+
+DOCK_FILE=~/.docked
+
+# Terminate already running bar instances
+killall -q -9 polybar || echo 'Process not running'
+
+while pgrep -x polybar > /dev/null; do sleep 0.02; done
+
 for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
   bar="plug"
   if [[ "$m" == "eDP1" ]]; then
     bar="x1c6"
-  elif [[ "$m" == "DP1-2" ]]; then
-    bar="main"
+    if [[ -f "$DOCK_FILE" ]]; then
+      bar="dockedx1c6"
+    fi
+    polybar --reload $bar &
+  elif [[ "$m" == "HDMI1" ]]; then
+    bar="plug"
+    MONITOR=$m polybar --reload $bar &
+  elif [[ "$m" == "HDMI2" ]]; then
+    bar="plug"
+    MONITOR=$m polybar --reload $bar &
   elif [[ "$m" == "DP1-1" ]]; then
-    bar="mainLeft"
+    MONITOR=$m polybar --reload mainLeft &
+  elif [[ "$m" == "DP1-2" ]]; then
+    MONITOR=$m polybar --reload main &
   fi
-  MONITOR=$m polybar --reload $bar &
 done

@@ -4,9 +4,7 @@
 ;
 ;=====================================================
 [colors]
-background = #CC070e14
 background-alt = #CC070e14
-foreground = #dfdfdf
 foreground-alt = #dfdfdf
 grayout = #2a2a2a
 primary = #ffb52a
@@ -18,146 +16,23 @@ lightRed = #720000
 highlight= #6677e1
 tray = #3d3d3d
 
+background     = ${xrdb:background} 
+foreground     = ${xrdb:foreground}
+
 ;=====================================================
 ;
 ; BARS
 ;
 ;=====================================================
-[bar/plug]
-monitor = ${env:MONITOR:}
+include-file = /home/andree/.config/polybar/bar_plug
 
-width = 100%
-height = 30
-radius = 0
-fixed-center = true 
+include-file = /home/andree/.config/polybar/main_left
 
-bottom = true
+include-file = /home/andree/.config/polybar/bar_main
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+include-file = /home/andree/.config/polybar/bar_x1
 
-line-size = 0
-line-color = #f00
-
-border-size = 0
-border-color = #00000000
-
-padding-left = 2
-padding-right = 2
-
-module-margin-left = 0
-module-margin-right = 0
-
-font-0 = Pango:pixelsize=12;3
-font-1 = FontAwesome:style=Regular:pixelsize=12;3
-
-modules-left = tux
-modules-center = i3
-modules-right =
-
-[bar/mainLeft]
-monitor = ${env:MONITOR:DP1-1}
-
-width = 100%
-height = 30
-radius = 0
-fixed-center = true 
-
-bottom = true
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = 0
-line-color = #f00
-
-border-size = 0
-border-color = #00000000
-
-padding-left = 2
-padding-right = 2
-
-module-margin-left = 0
-module-margin-right = 0
-
-font-0 = Pango:pixelsize=12;3
-font-1 = FontAwesome:style=Regular:pixelsize=12;3
-
-modules-left = tux separator temperature separator cpu separator memory separator filesystem
-modules-center = i3
-modules-right = xwindow separator powermenu
-
-[bar/main]
-monitor = ${env:MONITOR:DP1-2}
-
-width = 100%
-height = 30
-radius = 0
-fixed-center = true 
-
-bottom = true
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = 0
-line-color = #f00
-
-border-size = 0
-border-color = #00000000
-
-padding-left = 2
-padding-right = 2
-
-module-margin-left = 0
-module-margin-right = 0
-
-font-0 = Pango:pixelsize=12;3
-font-1 = FontAwesome:style=Regular:pixelsize=12;3
-
-modules-left = tux separator eth
-modules-center = i3 
-modules-right =  date separator lock separator powermenu
-
-tray-position = right
-tray-padding = 1
-tray-background = ${colors.tray}
-
-[bar/x1c6]
-monitor = ${env:MONITOR:eDP1}
-
-width = 100%
-height = 30
-radius = 0
-fixed-center = true 
-
-bottom = true
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = 0
-line-color = #f00
-
-border-size = 0
-border-color = #00000000
-
-padding-left = 2
-padding-right = 2
-
-module-margin-left = 0
-module-margin-right = 0
-
-font-0 = Pango:pixelsize=12;3
-font-1 = FontAwesome:style=Regular:pixelsize=12;3
-
-modules-left = tux pkgupdates-available separator wifi
-modules-center = i3 
-modules-right = date separator battery separator lock separator powermenu
-
-tray-position = right
-tray-padding = 1
-tray-background = ${color.tray}
+include-file = /home/andree/.config/polybar/bar_dockedx1
 
 ;=====================================================
 ;
@@ -250,7 +125,7 @@ ws-icon-5 = monitor;
 ws-icon-6 = spotify;
 ws-icon-7 = backup;
 ws-icon-8 = private;
-ws-icon-9 = 10
+ws-icon-9 = misc;
 
 [module/cpu]
 type = internal/cpu
@@ -270,9 +145,9 @@ label = %percentage_used%%
 
 [module/wifi]
 type = internal/network
-interface = wlp2s0
+#interface = wlp2s0
+interface = wlan0
 interval = 3.0
-udspeed-minwidth = 5
 accumulate-stats = true
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>
@@ -407,3 +282,7 @@ content-foreground = ${colors.grayout}
 #scroll-up = ~/.config/polybar/pavolume.sh --up
 #scroll-down = ~/.config/polybar/pavolume.sh --down
 
+[settings]
+throttle-output = 5
+throttle-output-for = 10
+screenchange-reload = true
