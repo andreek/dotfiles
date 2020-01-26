@@ -1,0 +1,34 @@
+[bar/x1c6]
+monitor = ${env:MONITOR:eDP1}
+
+width = 100%
+height = 30
+radius = 0
+fixed-center = true 
+
+bottom = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 0
+line-color = #f00
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 2
+padding-right = 2
+
+module-margin-left = 0
+module-margin-right = 0
+
+font-0 = Pango:pixelsize=12;3
+font-1 = FontAwesome:style=Regular:pixelsize=12;3
+
+modules-left = tux pkgupdates-available separator wifi separator temperature
+modules-center = i3 
+modules-right = date separator battery separator lock separator powermenu
+
+tray-position = right
+tray-background = ${colors.tray}

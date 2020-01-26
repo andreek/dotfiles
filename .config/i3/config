@@ -68,8 +68,8 @@ bindsym $mod+2 workspace web
 bindsym $mod+3 workspace dev
 bindsym $mod+4 workspace server
 bindsym $mod+5 workspace monitor
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace spotify
+bindsym $mod+6 workspace spotify
+bindsym $mod+7 workspace misc
 bindsym $mod+8 workspace backup
 bindsym $mod+9 workspace gaming
 bindsym $mod+0 workspace 10
@@ -80,8 +80,8 @@ bindsym $mod+Shift+2 move container to workspace web
 bindsym $mod+Shift+3 move container to workspace dev
 bindsym $mod+Shift+4 move container to workspace server
 bindsym $mod+Shift+5 move container to workspace monitor
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace spotify
+bindsym $mod+Shift+6 move container to workspace spotify
+bindsym $mod+Shift+7 move container to workspace misc
 bindsym $mod+Shift+8 move container to workspace backup
 bindsym $mod+Shift+9 move container to workspace gaming
 bindsym $mod+Shift+0 move container to workspace 10
@@ -129,12 +129,17 @@ bindsym $mod+r mode "resize"
 #}
 assign [class="(?i)Steam"] workspace gaming
 assign [class="(?i)csgo"] workspace gaming
-assign [class="(?i)firefox"] workspace web
+assign [class="(?i)firefox"] workspace private
 assign [class="(?i)chromium"] workspace web
 assign [title="(?i)Spotify"] workspace spotify
 assign [class="(?i)thunderbird"] workspace messages
 assign [class="(?i)teamspeak3"] workspace messages
+assign [class="(?i)evolution"] workspace messages
+assign [title="(?i)Gajim"] workspace messages
+assign [title="(?i)keepassxc"] workspace misc
 assign [title="(?i)Back Up"] workspace backup
+
+for_window [title="Android Emulator"] floating disabled
 
 #custom
 bindsym $mod+space exec rofi -show run
@@ -146,6 +151,7 @@ exec --no-startup-id /usr/bin/feh --bg-scale $HOME/dev/linux/Andreelec.tv/distri
 exec --no-startup-id /usr/bin/nm-applet
 exec --no-startup-id /usr/bin/twmnd
 exec --no-startup-id /usr/bin/xbindkeys
+exec --no-startup-id /usr/bin/nm-applet
 exec --no-startup-id /usr/bin/clipit
 exec --no-startup-id /usr/bin/pa-applet
 exec --no-startup-id /usr/bin/xss-lock i3lock -c 000
