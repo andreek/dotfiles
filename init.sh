@@ -19,3 +19,6 @@ ln -s $REPO/.vim $HOME/.vim
 mkdir -p $HOME/.vim/undo
 ln -s $REPO/.vimrc $HOME/.vimrc
 ln -s $REPO/.Xdefaults $HOME/.Xdefaults
+mkdir -p $HOME/.local/bin/
+ln -s $REPO/scripts/screens.sh $HOME/.local/bin/
+ln -s $REPO/scripts/dock.sh $HOME/.local/bin/

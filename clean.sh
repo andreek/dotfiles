@@ -8,3 +8,5 @@ rm -rf $HOME/.config/twmn/
 rm -rf $HOME/.vim
 rm -rf $HOME/.vimrc
 rm -rf $HOME/.Xdefaults
+rm -rf $HOME/.local/bin/screens.sh
+rm -rf $HOME/.local/bin/dock.sh
