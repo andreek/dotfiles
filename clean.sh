@@ -10,3 +10,4 @@ rm -rf $HOME/.vimrc
 rm -rf $HOME/.Xdefaults
 rm -rf $HOME/.local/bin/screens.sh
 rm -rf $HOME/.local/bin/dock.sh
+rm -rf $HOME/.local/bin/containers.sh

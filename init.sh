@@ -22,3 +22,4 @@ ln -s $REPO/.Xdefaults $HOME/.Xdefaults
 mkdir -p $HOME/.local/bin/
 ln -s $REPO/scripts/screens.sh $HOME/.local/bin/
 ln -s $REPO/scripts/dock.sh $HOME/.local/bin/
+ln -s $REPO/scripts/containers.sh $HOME/.local/bin/
