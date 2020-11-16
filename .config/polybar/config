@@ -6,15 +6,15 @@
 [colors]
 background-alt = #CC070e14
 foreground-alt = #dfdfdf
-grayout = #2a2a2a
+grayout = #949494
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
-green = #90EE90
+green = #225046
 gold = #996515
-lightRed = #720000
-highlight= #6677e1
-tray = #3d3d3d
+lightRed = #B95353
+highlight= #4CB59D
+tray = ${xrdb:background}
 
 background     = ${xrdb:background} 
 foreground     = ${xrdb:foreground}
@@ -41,8 +41,8 @@ include-file = /home/andree/.config/polybar/bar_dockedx1
 ;=====================================================
 [module/xwindow]
 type = internal/xwindow
-label = %title% 
-label-maxlen = 50
+label =  %title%
+label-maxlen = 25
 
 [module/filesystem]
 type = internal/fs
@@ -50,8 +50,8 @@ interval = 500
 mount-0 = /
 
 spacing = 2
-format-mounted =  HDD <label-mounted>
-label-mounted = %percentage_used%%
+format-mounted =  <label-mounted>
+label-mounted = %{T6}%used%/%total%
 label-unmounted = %mountpoint% -
 label-unmounted-foreground = ${colors.foreground-alt}
 
@@ -67,9 +67,9 @@ format-discharging = <ramp-capacity> <label-discharging>
 format-charging =  <label-charging>
 
 label-full =  100%
-label-full-foreground = ${colors.green}
+label-full-foreground = ${colors.highlight}
 
-label-charging = %percentage%%
+label-charging = %percentage% %
 label-charging-foreground = ${colors.gold}
 
 label-discharging = %percentage%%
@@ -79,6 +79,9 @@ ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
+
+ramp-capacity-0-foreground = ${colors.lightRed}
+ramp-capacity-1-foreground = ${colors.gold}
 
 [module/i3]
 type = internal/i3
@@ -90,71 +93,75 @@ reverse-scroll = false
 
 pin-workspaces = true
 
-label-mode-padding = 4
+label-mode-padding = 5
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
-label-focused = %icon% %name%
-label-focused-background = #186b58
+label-focused = %icon%  %{T5}%name%%{T-}
+label-focused-background = #084638
 label-focused-underline = #ffffff
-label-focused-padding = 2
+label-focused-padding = 5
 
-label-unfocused = %icon% %name%
-label-unfocused-padding = 2
+label-unfocused = %icon%  %{T5}%name%%{T-}
+label-unfocused-padding = 5
+label-unfocused-background = ${colors.background}
+label-unfocused-foreground = ${colors.grayout}
 
-label-visible = %icon% %name%
+label-visible = %icon%  %{T5}%name%%{T-}
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
-label-urgent =  %icon% %name%
-label-urgent-background =  ${colors.alert}
-label-urgent-padding = 2
+label-urgent =  %icon%  %{T5}%name%%{T-}
+label-urgent-background =  ${colors.lightRed}
+label-urgent-foreground = ${colors.background}
+label-urgent-padding = 5
 
 label-empty = %icon% %index%
 label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 2
+label-empty-padding = 5
 
 ws-icon-default = 
 ws-icon-0 = 1
-ws-icon-1 = messages;
-ws-icon-2 = web;
-ws-icon-3 = dev;
-ws-icon-4 = server;
-ws-icon-5 = monitor;
-ws-icon-6 = spotify;
-ws-icon-7 = backup;
-ws-icon-8 = private;
-ws-icon-9 = misc;
+ws-icon-1 = MESSAGES;
+ws-icon-2 = WEB;
+ws-icon-3 = DEV;
+ws-icon-4 = SERVER;
+ws-icon-5 = MONITOR;
+ws-icon-6 = SPOTIFY;
+ws-icon-7 = BACKUP;
+ws-icon-8 = PRIVATE;
+ws-icon-9 = MISC;
 
 [module/cpu]
 type = internal/cpu
-interval = 20
-format-prefix = "  CPU "
+interval = 3
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = 
-label = %percentage%%
+label = %{T6}%percentage%%
 
 [module/memory]
 type = internal/memory
-interval = 120.0
-format-prefix = "  MEM "
+interval = 20
+spacing = 2
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = 
-label = %percentage_used%%
+label = %{T6}%gb_used%/%gb_total%
 
 [module/wifi]
 type = internal/network
 #interface = wlp2s0
 interface = wlan0
-interval = 3.0
+interval = 5.0
 accumulate-stats = true
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>
-label-connected =  %local_ip% (%signal%% %essid%)
-label-connected-foreground = ${colors.green}
+label-connected =  %signal%% %local_ip% (%essid%)
+label-connected-foreground = ${colors.highlight}
 label-disconnected = 
-label-disconnected-foreground = ${colors.lightRed}
+label-disconnected-foreground = ${colors.grayout}
 
 [module/eth]
 type = internal/network
@@ -162,29 +169,28 @@ interface = eno1
 interval = 5.0
 
 format-connected-underline = 
-label-connected =  %local_ip%@%linkspeed%
-label-connected-foreground = ${colors.green}
+label-connected =  %local_ip%@%linkspeed%
+label-connected-foreground = ${colors.highlight}
 
 format-disconnected = <label-disconnected>
-label-disconnected =  - disconnected
-label-disconnected-foreground = ${colors.alert}
+label-disconnected = 
+label-disconnected-foreground = ${colors.grayout}
 
 [module/date]
 type = internal/date
 interval = 1
 
-date = " %d.%m.%y"
-time = %I:%M:%S
+date = "%d.%m.%y"
+time = %I:%M%
 
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline =
 
-label = %date%  %time%
+label = " %date%  %time%"
 
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
-hwmon-path=/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
 warn-temperature = 60
 
 format = <ramp> <label>
@@ -193,8 +199,8 @@ format-warn = <ramp> <label-warn>
 format-warn-foreground = ${colors.alert}
 format-warn-underline = ${self.format-underline}
 
-label = %temperature-c%
-label-warn = %temperature-c%
+label = %{T6}%temperature-c%
+label-warn = %{T6}%temperature-c%
 label-warn-foreground = ${colors.secondary}
 
 ramp-0 =
@@ -230,14 +236,42 @@ tail = false
 ; Default: 2 (0 if `tail = true`)
 interval = 300
 
-label = %output%
+label =  %output%
 
 ; Available tags:
 ;   <output> - deprecated
 ;   <label> (default)
 format = <label>
 format-background = ${colors.background}
-format-foreground = ${colors.highlight}
+format-foreground = ${colors.lightRed}
+format-padding = 1
+
+; Available tokens:
+;   %output%
+; Default: %output%
+
+[module/podman]
+type = custom/script
+; Available tokens:
+;   %counter%
+; Command to be executed (using "/usr/bin/env sh -c [command]")
+exec = "/home/andree/.local/bin/containers.sh"
+; Will the script output continous content?
+; Default: false
+tail = false
+
+; Seconds to sleep between updates
+; Default: 2 (0 if `tail = true`)
+interval = 30
+
+label =  %{T5}%output:0:60:.. ]%%{T-}
+
+; Available tags:
+;   <output> - deprecated
+;   <label> (default)
+format = <label>
+format-background = ${colors.background}
+label-foreground = ${colors.highlight}
 format-padding = 1
 
 ; Available tokens:
@@ -248,29 +282,47 @@ format-padding = 1
 type = custom/menu
 
 format-spacing = 1
+format-padding = 1
 
-label-open = ""
-label-open-foreground =  ${colors.lightRed}
-label-close = ""
-label-close-foreground = ${colors.lightRed}
-label-separator = 
+label-open = ""
+label-open-foreground =  ${colors.foreground-alt}
+label-close = ""
+label-close-foreground = ${colors.foreground-alt}
+label-separator = " "
 label-separator-foreground = ${colors.foreground-alt}
 
-menu-0-0 = suspend
-menu-0-0-exec = systemctl suspend
-menu-0-1 = reboot
-menu-0-1-exec = menu-open-1
-menu-0-2 = power off
-menu-0-2-exec = menu-open-2
-menu-1-0 = yes!
-menu-1-0-exec = reboot
+menu-0-0 = ""
+menu-0-0-exec = /usr/bin/i3lock -c 000000
+menu-0-0-foreground =  ${colors.gold}
+menu-0-1 = 
+menu-0-1-exec = systemctl suspend
+menu-0-1-foreground =  ${colors.grayout}
+menu-0-2 = 
+menu-0-2-exec = menu-open-1
+menu-0-2-foreground =  ${colors.highlight}
+menu-0-3 =  
+menu-0-3-exec = menu-open-2
+menu-0-3-foreground =  ${colors.lightRed}
+menu-1-0 = %{T5} reboot?%{T-}
+menu-1-0-foreground =  ${colors.highlight}
+menu-1-1 = %{T5}yes!%{T-}
+menu-1-1-exec = reboot
+menu-1-1-foreground =  ${colors.foreground-alt}
 
-menu-2-0 = yes!
-menu-2-0-exec = poweroff
+menu-2-0 = %{T5} power off?%{T-}
+menu-2-0-foreground =  ${colors.lightRed}
+menu-2-1 = %{T5}yes!%{T-}
+menu-2-1-exec = poweroff
+menu-2-1-foreground =  ${colors.foreground-alt}
 
 [module/separator]
 type = custom/text
 content = " | "
+content-foreground = ${colors.grayout}
+
+[module/space]
+type = custom/text
+content = "  "
 content-foreground = ${colors.grayout}
 
 #[module/pavolume]

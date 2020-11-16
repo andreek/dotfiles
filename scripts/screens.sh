@@ -16,10 +16,21 @@ if [[ "$HOSTNAME" == "pico" ]]; then
         continue;
       elif [[ "$m" = "eDP1" ]]; then
         xrandr --output eDP1 --auto --primary
+        xrandr --output DP1-2 --off
+        xrandr --output DP1-1 --off
         continue;
       fi
     done
   fi
+  #exec --no-startup-id DISPLAY=":0" /usr/bin/picom -CGb
+  exec --no-startup-id /usr/bin/feh --bg-scale $HOME/docs/misc/wallpaper.png
+  exec --no-startup-id /usr/bin/twmnd
+  exec --no-startup-id /usr/bin/xbindkeys
+  exec --no-startup-id /usr/bin/nm-applet
+  exec --no-startup-id /usr/bin/clipit
+  exec --no-startup-id /usr/bin/pa-applet
+  exec --no-startup-id /usr/bin/blueman-applet
+  #exec --no-startup-id /usr/local/bin/stretchly
 elif [[ "$HOSTNAME" == "desktop" ]]; then
   exec --no-startup-id /usr/bin/feh --bg-scale $HOME/dev/linux/Andreelec.tv/distributions/custom/splash/splash-1080.png
   exec --no-startup-id /usr/bin/twmnd

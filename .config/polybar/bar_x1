@@ -23,12 +23,17 @@ padding-right = 2
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = Pango:pixelsize=12;3
-font-1 = FontAwesome:style=Regular:pixelsize=12;3
+font-0 = Terminus:style=Bold:pixelsize=9;3
+font-1 = Font Awesome 5 Free:pixelsize=12;3
+font-2 = Font Awesome 5 Free Solid:pixelsize=12;3
+font-3 = Font Awesome 5 Brands:pixelsize=12;3
+font-4 = "Patrick Hand:style=Regular:pixelsize=12;3"
+font-5 = "Roboto:pixelsize=12;3"
 
-modules-left = tux pkgupdates-available separator wifi separator temperature
+
+modules-left = powermenu seperator wifi separator temperature
 modules-center = i3 
-modules-right = date separator battery separator lock separator powermenu
+modules-right = date separator battery separator lock
 
 tray-position = right
 tray-background = ${colors.tray}
