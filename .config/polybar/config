@@ -130,7 +130,7 @@ ws-icon-4 = SERVER;
 ws-icon-5 = MONITOR;
 ws-icon-6 = SPOTIFY;
 ws-icon-7 = BACKUP;
-ws-icon-8 = PRIVATE;
+ws-icon-8 = STEAM;
 ws-icon-9 = MISC;
 
 [module/cpu]
