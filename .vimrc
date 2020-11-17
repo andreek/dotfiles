@@ -13,10 +13,7 @@ filetype plugin indent on
 set clipboard=unnamed
 " Allow mouse usage in terminal vim
 set mouse=a
-" Always show status line
-set laststatus=2
-" Per project vimrc
-set exrc
+" Always show status line set laststatus=2 " Per project vimrc set exrc
 " Source vimrc files after editing
 autocmd bufwritepost .vimrc source <afile>
 " Indention
@@ -54,12 +51,16 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exe = 'eslint @%'
+let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
+
 
 " ------------------------------------------------------------------------------
 " Powerline
 " ------------------------------------------------------------------------------
-" let g:Powerline_symbols = 'fancy'
+let g:Powerline_symbols = 'fancy'
+set laststatus=2
+set showtabline=2
+set noshowmode
 
 " ------------------------------------------------------------------------------
 " Styling
@@ -133,6 +134,7 @@ silent! map <F3> :NERDTreeFind<CR>
 
 let g:NERDTreeMapActivateNode="<F3>"
 let g:NERDTreeMapPreview="<F4>"
+let g:NERDTreeWinSize=40
 
 " ------------------------------------------------------------------------------
 " Key bindings
