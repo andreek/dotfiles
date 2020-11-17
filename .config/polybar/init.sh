@@ -3,11 +3,6 @@
 DOCK_FILE=~/.docked
 HOSTNAME=$(hostname -s)
 
-# Terminate already running bar instances
-killall -q polybar || echo 'Process not running'
-
-while pgrep -x polybar > /dev/null; do sleep 0.02; done
-
 if [[ "$HOSTNAME" == "desktop" ]]; then
   MONITOR=DVI-I-1 polybar --reload main &
   MONITOR=DVI-D-0 polybar --reload mainLeft &

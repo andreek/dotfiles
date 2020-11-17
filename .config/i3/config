@@ -146,11 +146,13 @@ bindsym $mod+space exec rofi -show run
 bindsym $mod+p exec rofi -show ssh
 bindsym $mod+Tab exec rofi -show window
 
-exec_always ~/.local/bin/screens.sh
-exec --no-startup-id feh --bg-scale $HOME/docs/misc/wallpaper.png &
-exec --no-startup-id twmnd &
-exec --no-startup-id xbindkeys &
-exec --no-startup-id nm-applet &
-exec --no-startup-id clipit &
-exec --no-startup-id pa-applet &
-exec --no-startup-id blueman-applet &
+exec_always $HOME/.local/bin/screens.sh
+
+exec --no-startup-id feh --bg-scale $HOME/docs/misc/wallpaper.png
+exec --no-startup-id twmnd
+exec --no-startup-id xbindkeys
+exec --no-startup-id nm-applet
+exec --no-startup-id clipit
+exec --no-startup-id pa-applet
+exec --no-startup-id blueman-applet
+
