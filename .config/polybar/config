@@ -4,7 +4,7 @@
 ;
 ;=====================================================
 [colors]
-background-alt = #CC070e14
+background-alt = #211f20
 foreground-alt = #dfdfdf
 grayout = #949494
 primary = #ffb52a
@@ -13,10 +13,10 @@ alert = #bd2c40
 green = #225046
 gold = #996515
 lightRed = #B95353
-highlight= #4CB59D
-tray = ${xrdb:background}
+highlight= #6e8f58
+tray = #211f20
 
-background     = ${xrdb:background} 
+background     = #211f20
 foreground     = ${xrdb:foreground}
 
 ;=====================================================
@@ -264,7 +264,7 @@ tail = false
 ; Default: 2 (0 if `tail = true`)
 interval = 30
 
-label =  %{T5}%output:0:60:.. ]%%{T-}
+label =  %{T6}%output:0:60:.. ]%%{T-}
 
 ; Available tags:
 ;   <output> - deprecated
@@ -272,7 +272,6 @@ label =  %{T5}%output:0:60:.. ]%%{T-}
 format = <label>
 format-background = ${colors.background}
 label-foreground = ${colors.highlight}
-format-padding = 1
 
 ; Available tokens:
 ;   %output%

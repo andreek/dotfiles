@@ -31,6 +31,6 @@ font-4 = "Patrick Hand:style=Regular:pixelsize=12;3"
 font-5 = "Roboto:pixelsize=10;3"
 
 
-modules-left = temperature space cpu space memory space filesystem
+modules-left = temperature separator cpu separator memory separator filesystem
 modules-center = i3
 modules-right = podman separator date
