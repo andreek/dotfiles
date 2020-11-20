@@ -5,8 +5,6 @@
 set nocompatible
 " Leader key
 let mapleader = ","
-" Enable pathogen bundle loader
-call pathogen#infect()
 " Recognize file types / set indent mode
 filetype plugin indent on
 " Share OS clipboard
@@ -99,11 +97,6 @@ set expandtab
 "" 2 spaces for indention
 " set shiftwidth=4
 
-" ------------------------------------------------------------------------------
-" godef
-" ------------------------------------------------------------------------------
-" open go definitions in same window
-let g:godef_split=0
 "
 " ------------------------------------------------------------------------------
 " snipmate
@@ -157,20 +150,6 @@ let g:jsx_ext_required = 0
 
 " ------------------------------------------------------------------------------
 " File type specifics *
-" ------------------------------------------------------------------------------
-" Go
-au FileType go nmap gd <Plug>(go-def)
-au FileType go nmap <Leader>i <Plug>(go-info)
-au FileType go nmap <Leader>gd <Plug>(go-doc)
-au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <Leader>ds <Plug>(go-def-split)
-au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-au FileType go nmap <Leader>dt <Plug>(go-def-tab)
-
 " Execute current file with node.js
 autocmd BufEnter *.js nmap <Leader><Leader> :w<CR>:!node %:p<CR>
 " Execute current file with coffee-script node.js

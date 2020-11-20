@@ -1,30 +1,27 @@
 [submodule ".vim/bundle/syntastic"]
-	path = .vim/bundle/syntastic
+	path = .vim/pack/dev/start/syntastic
 	url = git://github.com/vim-syntastic/syntastic.git
 [submodule ".vim/bundle/ack.vim"]
-	path = .vim/bundle/ack.vim
+	path = .vim/pack/dev/start/ack.vim
 	url = git://github.com/mileszs/ack.vim.git
 [submodule ".vim/bundle/nerdtree"]
-	path = .vim/bundle/nerdtree
+	path = .vim/pack/dev/start/nerdtree
 	url = git://github.com/scrooloose/nerdtree
 [submodule ".vim/bundle/vim-fugitive"]
-	path = .vim/bundle/vim-fugitive
+	path = .vim/pack/dev/start/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive
-[submodule ".vim/bundle/vim-go"]
-	path = .vim/bundle/vim-go
-	url = https://github.com/fatih/vim-go.git
 [submodule ".vim/bundle/vim-polyglot"]
-	path = .vim/bundle/vim-polyglot
+	path = .vim/pack/dev/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot
 [submodule ".vim/bundle/vim-snipmate"]
-	path = .vim/bundle/vim-snipmate
+	path = .vim/pack/dev/start/vim-snipmate
 	url = https://github.com/garbas/vim-snipmate.git
 [submodule ".vim/bundle/vim-snippets"]
-	path = .vim/bundle/vim-snippets
+	path = .vim/pack/dev/start/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
 [submodule ".vim/bundle/tlib_vim"]
-	path = .vim/bundle/tlib_vim
+	path = .vim/pack/dev/start/tlib_vim
 	url = https://github.com/tomtom/tlib_vim.git
 [submodule ".vim/bundle/vim-addon-mw-utils"]
-	path = .vim/bundle/vim-addon-mw-utils
+	path = .vim/pack/dev/start/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
