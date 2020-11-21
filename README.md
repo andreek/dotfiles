@@ -17,10 +17,10 @@ sudo pacman -S rofi \
      feh \
      stretchly \
      twmn \
-     python-powerline-git \
+     powerline \
      ttf-font-awesome \
      ttf-patrick-hand-full \
-     ttf-roboto-slab vim-colorschemes
+     ttf-roboto-slab
 ```
 
 ## features
@@ -31,8 +31,21 @@ sudo pacman -S rofi \
 
 ## install
 
-./init.sh
+### desktop
 
-## clean up
+```shell
+HOME=<home> REPO=<repo> make all
+```
 
-./clean.sh
+### vim
+
+```shell
+HOME=<home> REPO=<repo> make vim
+```
+
+## clean
+
+```shell
+HOME=<home> REPO=<repo> make clean
+```
+
