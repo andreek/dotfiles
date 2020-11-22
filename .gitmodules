@@ -28,3 +28,6 @@
 [submodule ".vim/pack/dev/start/powerline"]
 	path = .vim/pack/dev/start/powerline
 	url = https://github.com/powerline/powerline
+[submodule ".vim/pack/dev/start/gruvbox"]
+	path = .vim/pack/dev/start/gruvbox
+	url = https://github.com/morhetz/gruvbox.git
