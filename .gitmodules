@@ -25,3 +25,6 @@
 [submodule ".vim/bundle/vim-addon-mw-utils"]
 	path = .vim/pack/dev/start/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule ".vim/pack/dev/start/powerline"]
+	path = .vim/pack/dev/start/powerline
+	url = https://github.com/powerline/powerline

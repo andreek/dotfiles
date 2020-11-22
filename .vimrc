@@ -55,6 +55,8 @@ let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
 " ------------------------------------------------------------------------------
 " Powerline
 " ------------------------------------------------------------------------------
+set rtp+=/home/andree/.vim/pack/dev/start/powerline/powerline/bindings/vim
+let g:powerline_pycmd = 'py3'
 let g:Powerline_symbols = 'fancy'
 set laststatus=2
 set showtabline=2

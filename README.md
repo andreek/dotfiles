@@ -17,7 +17,6 @@ sudo pacman -S rofi \
      feh \
      stretchly \
      twmn \
-     powerline \
      ttf-font-awesome \
      ttf-patrick-hand-full \
      ttf-roboto-slab
