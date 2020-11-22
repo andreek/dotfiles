@@ -19,7 +19,8 @@ sudo pacman -S rofi \
      twmn \
      ttf-font-awesome \
      ttf-patrick-hand-full \
-     ttf-roboto-slab
+     ttf-roboto-slab \
+     ttf-fira-code
 ```
 
 ## features

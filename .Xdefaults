@@ -1,13 +1,7 @@
 xterm*background: #111111
 xterm*foreground: #babdb6
-#xterm*faceName:           terminusbold:pixelsize=14
-#xterm*faceName:           "DejaVu Sans Mono Bold:size=16"
-#xterm*faceName:            "DejaVu Sans Mono":style=Book:antialias=false
-xterm*faceName:            xft:DejaVu Sans Mono:pixelsize=14:antialias=true:autohint=true
-xterm*boldFont:            xft:DejaVu Sans Mono Bold:pixelsize=14:antialias=true:autohint=true
-!xterm*font:             -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
-#xterm*font:               xft:terminus:pixelsize=16:antialias=false
-#xterm*boldFont:           xft:terminus:pixelsize=16:antialias=false
+xterm*faceName:           xft:Fira Mono:pixelsize=14:antialias=true:autohint=true
+xterm*boldFont:           xft:Fira Mono:pixelsize=14:antialias=true:autohint=true
 xterm*dynamicColors:      true
 xterm*utf8:               2
 xterm*eightBitInput:      true
