@@ -29,6 +29,8 @@ twmn:
 	ln -s ${REPO}/.config/twmn/twmn.conf ${HOME}/.config/twmn/twmn.conf
 
 vim:
+	git -C ${REPO} submodule init
+	git -C ${REPO} submodule update
 	ln -s ${REPO}/.vim ${HOME}/.vim
 	mkdir -p ${HOME}/.vim/undo
 	ln -s ${REPO}/.vimrc ${HOME}/.vimrc
