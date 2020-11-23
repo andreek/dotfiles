@@ -3,15 +3,12 @@
 " ------------------------------------------------------------------------------
 " Be IMproved
 set nocompatible
-" Leader key
-let mapleader = ","
 " Recognize file types / set indent mode
 filetype plugin indent on
 " Share OS clipboard
 set clipboard=unnamed
 " Allow mouse usage in terminal vim
 set mouse=a
-" Always show status line set laststatus=2 " Per project vimrc set exrc
 " Source vimrc files after editing
 autocmd bufwritepost .vimrc source <afile>
 " Indention
@@ -27,7 +24,7 @@ set noswapfile
 " Enable vim to remember undo chains between sessions (vim 7.3)
 if v:version >= 703
   set undofile
-  set undodir=/home/andree/.vim/undo 
+  set undodir="~/.vim/undo"
 endif
 set completeopt=menuone,longest
 " Ignore certain things
@@ -55,7 +52,7 @@ let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
 " ------------------------------------------------------------------------------
 " Powerline
 " ------------------------------------------------------------------------------
-set rtp+=/home/andree/.vim/pack/dev/start/powerline/powerline/bindings/vim
+set rtp+=~/.vim/pack/dev/start/powerline/powerline/bindings/vim
 let g:powerline_pycmd = 'py3'
 let g:Powerline_symbols = 'fancy'
 set laststatus=2
@@ -68,11 +65,6 @@ set noshowmode
 " Syntax highlighting
 syntax on
 " Color Scheme
-" colorscheme seoul256
-" colorscheme solarized8_light_flat
-" colorscheme PaperColor
-" colorscheme summerfruit256
-" colorscheme wombat256
 colorscheme gruvbox
 " Show Line numbers
 set number
@@ -95,24 +87,9 @@ autocmd BufEnter * set listchars=tab:▸\ ,eol:¬
 " Spaces instead of tabs
 set expandtab
 " 2 spaces for each tab
-" set tabstop=4
+set tabstop=2
 "" 2 spaces for indention
-" set shiftwidth=4
-
-"
-" ------------------------------------------------------------------------------
-" snipmate
-" ------------------------------------------------------------------------------
-" Configure snipmate dir
-let g:snippets_dir="~/.vim/snippets"
-
-" ------------------------------------------------------------------------------
-" CtrlP
-" ------------------------------------------------------------------------------
-let g:ctrlp_dont_split = 'NERD_tree_2'
-let g:ctrlp_working_path_mode = ''
-let g:ctrlp_mruf_relative = 1
-nmap <Leader>p :CtrlPMRU<CR>
+set shiftwidth=2
 
 " ------------------------------------------------------------------------------
 " NERDTree
@@ -138,35 +115,32 @@ let g:NERDTreeWinSize=40
 nmap <Leader>v :e ~/.vimrc<CR>
 " Edit project .vimrc
 map <Leader>V :e .vimrc<CR>
-" Generate ctags
-nmap <Leader>c :!ctags -R .<CR>
-
+" Edit project .env
+map <Leader>C :e .env<CR>
 " Clear search results when hitting space
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
-
 " Copy path to current buffer into clipboard
-nnoremap <leader><space> :!echo -n % \| pbcopy<CR><CR>
-nnoremap <leader>o :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=line('.')<CR> \| xargs open<CR><CR>
+nnoremap <leader><space> :!echo -n % \| xclip -selection clipboard<CR><CR>
 
 let g:jsx_ext_required = 0
 
 " ------------------------------------------------------------------------------
-" File type specifics *
+" File type specifics
+" ------------------------------------------------------------------------------
 " Execute current file with node.js
 autocmd BufEnter *.js nmap <Leader><Leader> :w<CR>:!node %:p<CR>
-" Execute current file with coffee-script node.js
-autocmd BufEnter *.coffee nmap <Leader><Leader> :w<CR>:!coffee %:p<CR>
+" Execute related jest tests with current file
+autocmd BufEnter *.js nmap <Leader>t :w<CR>:!npx jest --verbose --findRelatedTests %:p<CR>
+" Execute eslint fix with current file
+autocmd BufEnter *.js nmap <Leader>e :w<CR>:!npx eslint --fix %:p<CR>:e!<CR>
+" Execute current file with python
+autocmd BufEnter *.py nmap <Leader><Leader> :w<CR>:!python %:p<CR>
 
 " Recognise file by extension
-autocmd BufEnter *.ctp set filetype=php
 autocmd BufEnter *.less set filetype=less
-autocmd BufEnter *.ds set filetype=javascript
 autocmd BufEnter *.json set filetype=javascript
-autocmd BufEnter *.isml set filetype=html
-autocmd BufEnter *.ejs set filetype=html
 
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
-autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype typescript setlocal ts=2 sts=2 sw=2
 
