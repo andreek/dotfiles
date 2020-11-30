@@ -9,6 +9,8 @@ filetype plugin indent on
 set clipboard=unnamed
 " Allow mouse usage in terminal vim
 set mouse=a
+" Per project vimrc
+set exrc
 " Source vimrc files after editing
 autocmd bufwritepost .vimrc source <afile>
 " Indention
@@ -90,6 +92,13 @@ set expandtab
 set tabstop=2
 "" 2 spaces for indention
 set shiftwidth=2
+" ------------------------------------------------------------------------------
+" fugitive.vim
+" ------------------------------------------------------------------------------
+nnoremap <Leader>s :G<CR>
+nnoremap <Leader>d :Gdiff<CR>
+nnoremap <Leader>h :Glog<CR>
+
 
 " ------------------------------------------------------------------------------
 " NERDTree
@@ -136,13 +145,9 @@ autocmd BufEnter *.js nmap <Leader>e :w<CR>:!npx eslint --fix %:p<CR>:e!<CR>
 " Execute current file with python
 autocmd BufEnter *.py nmap <Leader><Leader> :w<CR>:!python %:p<CR>
 
-" Recognise file by extension
-autocmd BufEnter *.less set filetype=less
-autocmd BufEnter *.json set filetype=javascript
+autocmd BufEnter *.json set filetype=json
 
-autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
-autocmd Filetype typescript setlocal ts=2 sts=2 sw=2
 
 " Super replace
 command! -nargs=* Argdo noautocmd silent argdo <args>
