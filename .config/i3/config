@@ -1,10 +1,18 @@
 #
 # i3 config file (v4)
 #
+# class                 border  bground text    indicator child_border
+client.focused          #000000 #084638 #FFFFFF #000000   #000000
+client.focused_inactive #000000 #222222 #FFFFFF #484E50   #5F676A
+client.unfocused        #000000 #222222 #969696 #292D2E   #222222
+client.urgent           #000000 #BD2C40 #FFFFFF #BD2C40   #BD2C40
+client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
+
+client.background       #FFFFFF
+
+font pango:Roboto Bold 11
 
 set $mod Mod4
-
-font pango:monospace 9
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -100,7 +108,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Logout?' -b 'Yes' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -129,25 +137,22 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#        status_command i3status
-#}
+# window assignments
 assign [class="(?i)Steam"] workspace STEAM
 assign [title="(?i)OpenGL"] workspace CSGO
 assign [class="(?i)firefox"] workspace STEAM
 assign [class="(?i)chromium"] workspace WEB
-assign [class="(?i)spotify"] workspace SPOTIFY
+assign [class="Spotify"] workspace SPOTIFY
 assign [class="(?i)thunderbird"] workspace MESSAGES
-assign [class="(?i)teamspeak3"] workspace MESSAGES
 assign [class="(?i)evolution"] workspace MESSAGES
-assign [title="(?i)Gajim"] workspace MESSAGES
 assign [title="(?i)keepassxc"] workspace MISC
-assign [title="(?i)Back Up"] workspace BACKUP
 assign [title="(?i)Flipper"] workspace MONITOR
+assign [class="scrcpy"] workspace MONITOR
 
+for_window [class=".*"] title_format "  %title"
+for_window [class="scrcpy"] border pixel 1
 for_window [title="Android Emulator"] floating enabled
+for_window [title="(?i)OpenGL"] floating enabled
 
 #custom
 bindsym $mod+space exec rofi -show run

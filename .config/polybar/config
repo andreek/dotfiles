@@ -166,7 +166,7 @@ label-disconnected-foreground = ${colors.grayout}
 
 [module/eth]
 type = internal/network
-interface = eno1
+interface = enp0s31f6
 interval = 5.0
 
 format-connected-underline = 
@@ -192,7 +192,7 @@ label = " %date%  %time%"
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
-warn-temperature = 60
+warn-temperature = 80
 
 format = <ramp> <label>
 format-underline = #f50a4d
