@@ -132,6 +132,7 @@ ws-icon-6 = SPOTIFY;
 ws-icon-7 = BACKUP;
 ws-icon-8 = STEAM;
 ws-icon-9 = MISC;
+ws-icon-10 = CSGO;
 
 [module/cpu]
 type = internal/cpu

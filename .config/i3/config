@@ -73,6 +73,7 @@ bindsym $mod+7 workspace MISC
 bindsym $mod+8 workspace BACKUP
 bindsym $mod+9 workspace STEAM
 bindsym $mod+0 workspace 10
+bindsym $mod+c workspace CSGO
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace MESSAGES
@@ -84,9 +85,15 @@ bindsym $mod+Shift+6 move container to workspace SPOTIFY
 bindsym $mod+Shift+7 move container to workspace MISC
 bindsym $mod+Shift+8 move container to workspace BACKUP
 bindsym $mod+Shift+9 move container to workspace STEAM
+bindsym $mod+Shift+11 move container to workspace CSGO
 
 bindsym $mod+x move workspace to output right
 bindsym $mod+y move workspace to output let
+
+# bind workspaces to monitors
+workspace CSGO output primary
+workspace DEV output primary
+workspace WEB output primary
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -119,6 +126,7 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+
 bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -127,7 +135,7 @@ bindsym $mod+r mode "resize"
 #        status_command i3status
 #}
 assign [class="(?i)Steam"] workspace STEAM
-assign [class="(?i)csgo"] workspace STEAM
+assign [title="(?i)OpenGL"] workspace CSGO
 assign [class="(?i)firefox"] workspace STEAM
 assign [class="(?i)chromium"] workspace WEB
 assign [class="(?i)spotify"] workspace SPOTIFY
