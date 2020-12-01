@@ -1,5 +1,5 @@
 [submodule ".vim/bundle/syntastic"]
-	path = .vim/pack/dev/start/syntastic
+	path = .vim/pack/syntax/start/syntastic
 	url = git://github.com/vim-syntastic/syntastic.git
 [submodule ".vim/bundle/ack.vim"]
 	path = .vim/pack/dev/start/ack.vim
@@ -11,7 +11,7 @@
 	path = .vim/pack/dev/start/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive
 [submodule ".vim/bundle/vim-polyglot"]
-	path = .vim/pack/dev/start/vim-polyglot
+	path = .vim/pack/syntax/start/vim-polygot
 	url = https://github.com/sheerun/vim-polyglot
 [submodule ".vim/bundle/vim-snipmate"]
 	path = .vim/pack/dev/start/vim-snipmate
@@ -20,14 +20,17 @@
 	path = .vim/pack/dev/start/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
 [submodule ".vim/bundle/tlib_vim"]
-	path = .vim/pack/dev/start/tlib_vim
+	path = .vim/pack/syntax/start/tlib_vim
 	url = https://github.com/tomtom/tlib_vim.git
 [submodule ".vim/bundle/vim-addon-mw-utils"]
-	path = .vim/pack/dev/start/vim-addon-mw-utils
+	path = .vim/pack/syntax/start/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
 [submodule ".vim/pack/dev/start/powerline"]
 	path = .vim/pack/dev/start/powerline
 	url = https://github.com/powerline/powerline
 [submodule ".vim/pack/dev/start/gruvbox"]
-	path = .vim/pack/dev/start/gruvbox
+	path = .vim/pack/colors/start/gruvbox
 	url = https://github.com/morhetz/gruvbox.git
+[submodule ".vim/pack/dev/opt/vim-go"]
+	path = .vim/pack/dev/opt/vim-go
+	url = https://github.com/fatih/vim-go.git

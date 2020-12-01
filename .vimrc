@@ -118,6 +118,11 @@ let g:NERDTreeMapPreview="<F4>"
 let g:NERDTreeWinSize=40
 
 " ------------------------------------------------------------------------------
+" Polygot
+" ------------------------------------------------------------------------------
+let g:polyglot_disabled = [ 'go' ]
+
+" ------------------------------------------------------------------------------
 " Key bindings
 " ------------------------------------------------------------------------------
 " Edit user .vimrc
@@ -136,6 +141,10 @@ let g:jsx_ext_required = 0
 " ------------------------------------------------------------------------------
 " File type specifics
 " ------------------------------------------------------------------------------
+
+" ------------------------------------------------------------------------------
+" JavaScript
+" ------------------------------------------------------------------------------
 " Execute current file with node.js
 autocmd BufEnter *.js nmap <Leader><Leader> :w<CR>:!node %:p<CR>
 " Execute related jest tests with current file
@@ -143,11 +152,24 @@ autocmd BufEnter *.js nmap <Leader>t :w<CR>:!npx jest --verbose --findRelatedTes
 " Execute eslint fix with current file
 autocmd BufEnter *.js nmap <Leader>e :w<CR>:!npx eslint --fix %:p<CR>:e!<CR>
 " Execute current file with python
-autocmd BufEnter *.py nmap <Leader><Leader> :w<CR>:!python %:p<CR>
 
 autocmd BufEnter *.json set filetype=json
-
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+
+" ------------------------------------------------------------------------------
+" Python
+" ------------------------------------------------------------------------------
+" Execute current file with python
+autocmd BufEnter *.py nmap <Leader><Leader> :w<CR>:!python %:p<CR>
+
+" ------------------------------------------------------------------------------
+" GO
+" ------------------------------------------------------------------------------
+" load vim-go and reload current file
+autocmd BufEnter *.go nmap <Leader><Leader> :GoRun<CR>
+autocmd BufEnter *.go nmap <Leader>l :e!<CR>
+autocmd Filetype go setlocal ts=4 sts=4 sw=4
+autocmd Filetype go packadd vim-go
 
 " Super replace
 command! -nargs=* Argdo noautocmd silent argdo <args>
