@@ -26,7 +26,7 @@ set noswapfile
 " Enable vim to remember undo chains between sessions (vim 7.3)
 if v:version >= 703
   set undofile
-  set undodir="~/.vim/undo"
+  set undodir=~/.vim/undo
 endif
 set completeopt=menuone,longest
 " Ignore certain things
