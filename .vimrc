@@ -67,6 +67,8 @@ set noshowmode
 " Syntax highlighting
 syntax on
 " Color Scheme
+set background=light
+" colorscheme PaperColor
 colorscheme gruvbox
 " Show Line numbers
 set number
@@ -95,9 +97,10 @@ set shiftwidth=2
 " ------------------------------------------------------------------------------
 " fugitive.vim
 " ------------------------------------------------------------------------------
-nnoremap <Leader>s :G<CR>
-nnoremap <Leader>d :Gdiff<CR>
-nnoremap <Leader>h :Glog<CR>
+nnoremap <Leader>s :tabnew<CR>:G<CR>
+nnoremap <Leader>d :tabe %:p<CR>:Gdiff<CR>
+nnoremap <Leader>h :tabnew<CR>:Gclog<CR>:copen<CR>
+nnoremap <Leader>l :tabe %:p<CR>:Gclog %:p<CR>:copen<CR>
 
 
 " ------------------------------------------------------------------------------
@@ -116,11 +119,6 @@ silent! map <F3> :NERDTreeFind<CR>
 let g:NERDTreeMapActivateNode="<F3>"
 let g:NERDTreeMapPreview="<F4>"
 let g:NERDTreeWinSize=40
-
-" ------------------------------------------------------------------------------
-" Polygot
-" ------------------------------------------------------------------------------
-let g:polyglot_disabled = [ 'go' ]
 
 " ------------------------------------------------------------------------------
 " Key bindings
@@ -169,7 +167,12 @@ autocmd BufEnter *.py nmap <Leader><Leader> :w<CR>:!python %:p<CR>
 autocmd BufEnter *.go nmap <Leader><Leader> :GoRun<CR>
 autocmd BufEnter *.go nmap <Leader>l :e!<CR>
 autocmd Filetype go setlocal ts=4 sts=4 sw=4
-autocmd Filetype go packadd vim-go
+
+" ------------------------------------------------------------------------------
+" snipMate
+" ------------------------------------------------------------------------------
+let g:snipMate = { 'snippet_version' : 1 }
 
 " Super replace
 command! -nargs=* Argdo noautocmd silent argdo <args>
+
