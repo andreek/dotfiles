@@ -17,6 +17,9 @@ sudo pacman -S rofi \
      feh \
      stretchly \
      twmn \
+     libinput-gestures \
+     wmctrl \
+     xdotool \
      ttf-font-awesome \
      ttf-patrick-hand-full \
      ttf-roboto-slab \

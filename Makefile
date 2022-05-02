@@ -13,6 +13,7 @@ desktop: i3 polybar scripts twmn
 
 i3:
 	ln -s ${REPO}/.config/i3 ${HOME}/.config/i3
+	ln -s ${REPO}/.config/libinput-gestures.conf ${HOME}/.config/libinput-gestures.conf
 	ln -s ${REPO}/.Xdefaults ${HOME}/.Xdefaults
 
 polybar:
@@ -39,6 +40,7 @@ clean: cleanvim
 	rm -rf ${HOME}/.config/i3
 	rm -rf ${HOME}/.config/polybar
 	rm -rf ${HOME}/.config/twmn
+	rm -rf ${HOME}/.config/libinput-gestures.conf
 	rm -rf ${HOME}/.Xdefaults
 	rm -rf ${HOME}/.local/bin/screens.sh
 	rm -rf ${HOME}/.local/bin/dock.sh
