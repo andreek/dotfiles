@@ -67,8 +67,6 @@ set noshowmode
 " Syntax highlighting
 syntax on
 " Color Scheme
-set background=light
-" colorscheme PaperColor
 colorscheme gruvbox
 " Show Line numbers
 set number
@@ -152,6 +150,7 @@ autocmd BufEnter *.js nmap <Leader>e :w<CR>:!npx eslint --fix %:p<CR>:e!<CR>
 " Execute current file with python
 
 autocmd BufEnter *.json set filetype=json
+autocmd BufEnter *.uce set filetype=html
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 
 " ------------------------------------------------------------------------------
@@ -176,3 +175,18 @@ let g:snipMate = { 'snippet_version' : 1 }
 " Super replace
 command! -nargs=* Argdo noautocmd silent argdo <args>
 
+" ------------------------------------------------------------------------------
+" Switch dark/light mode
+" ------------------------------------------------------------------------------
+function! SetBackgroundMode(...)
+    let s:new_bg = "light"
+    let s:mode = systemlist("gsettings get org.gnome.desktop.interface color-scheme")[0]
+    if s:mode ==? "'prefer-dark'"
+        let s:new_bg = "dark"
+    endif
+    if &background !=? s:new_bg
+        let &background = s:new_bg
+    endif
+endfunction
+call SetBackgroundMode()
+call timer_start(3000, "SetBackgroundMode", {"repeat": -1})

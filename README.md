@@ -8,6 +8,7 @@ finally we made it!
 sudo pacman -S rofi \
      i3 \ 
      i3lock \
+     dbus \
      polybar \
      vim \
      vim-colorschemes \
@@ -20,9 +21,12 @@ sudo pacman -S rofi \
      libinput-gestures \
      wmctrl \
      xdotool \
+     xdg-desktop-portal xdg-desktop-portal-kde xdg-desktop-portal-gnome xdg-desktop-portal-gtk \
+     xdg-dbus-proxy \
      ttf-font-awesome \
      ttf-patrick-hand-full \
      ttf-roboto-slab \
+     ttf-roboto-mono \
      ttf-fira-code
 ```
 
@@ -44,6 +48,20 @@ HOME=<home> REPO=<repo> make all
 
 ```shell
 HOME=<home> REPO=<repo> make vim
+```
+
+### darkman
+
+```shell
+HOME=<home> REPO=<repo> make darkman
+```
+
+Add config with your location to `~/.config/darkman/config.yaml`
+
+```yml
+lat: <lat>
+lng: <lng>
+dbusserver: true
 ```
 
 ## clean

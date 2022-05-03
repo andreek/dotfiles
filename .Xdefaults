@@ -1,7 +1,7 @@
 xterm*background: #111111
 xterm*foreground: #babdb6
-xterm*faceName:           xft:Fira Mono:pixelsize=14:antialias=true:autohint=true
-xterm*boldFont:           xft:Fira Mono:pixelsize=14:antialias=true:autohint=true
+xterm*faceName:           xft:Roboto Mono:pixelsize=13:antialias=true:autohint=true
+xterm*boldFont:           xft:Roboto Mono:pixelsize=13:antialias=true:autohint=true
 xterm*dynamicColors:      true
 xterm*utf8:               2
 xterm*eightBitInput:      true
@@ -44,3 +44,13 @@ xterm*metaSendsEscape: true
 ! LightGrey + White
 *color7:  #cccccc
 *color15: #ffffff
+
+! Xft.dpi: 96
+! 
+! ! These might also be useful depending on your monitor and personal preference:
+! Xft.autohint: 0
+! Xft.lcdfilter:  lcddefault
+! Xft.hintstyle:  hintfull
+! Xft.hinting: 1
+! Xft.antialias: 1
+! Xft.rgba: rgb
