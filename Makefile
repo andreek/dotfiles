@@ -1,4 +1,4 @@
-.PHONY: all clean cleanvim desktop i3 polybar twmn vim scripts darkman libinput
+.PHONY: all clean cleanvim cleangtk desktop i3 polybar twmn vim scripts darkman libinput gtk
 
 ifeq ($(strip $(REPO)),)
 REPO := /home/andree/.dotfiles
@@ -9,12 +9,17 @@ endif
 
 all: vim desktop
 
-desktop: i3 polybar scripts twmn darkman libinput
+desktop: i3 polybar scripts twmn darkman libinput gtk
 
 i3:
 	ln -s ${REPO}/.config/i3 ${HOME}/.config/i3
 	ln -s ${REPO}/.Xdefaults ${HOME}/.Xdefaults
 	ln -s ${REPO}/.xinitrc ${HOME}/.xinitrc
+
+gtk:
+	ln -s ${REPO}/.config/.gtkrc-2.0 ${HOME}/.gtkrc-2.0
+	ln -s ${REPO}/.config/gtk-3.0 ${HOME}/.config/gtk-3.0
+	ln -s ${REPO}/.config/qt5ct ${HOME}/.config/qt5ct
 
 libinput:
 	ln -s ${REPO}/.config/libinput-gestures.conf ${HOME}/.config/libinput-gestures.conf
@@ -55,6 +60,11 @@ clean: cleanvim
 	rm -rf ${HOME}/.local/bin/screens.sh
 	rm -rf ${HOME}/.local/bin/dock.sh
 	rm -rf ${HOME}/.local/bin/containers.sh
+
+cleangtk:
+	rm -rf ${HOME}/.gtkrc-2.0
+	rm -rf ${HOME}/.config/gtk-3.0
+	rm -rf ${HOME}/.config/qt5ct
 
 cleanvim:
 	rm -rf ${HOME}/.vim

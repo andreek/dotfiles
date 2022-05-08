@@ -23,6 +23,7 @@ sudo pacman -S rofi \
      xdotool \
      xdg-desktop-portal xdg-desktop-portal-kde xdg-desktop-portal-gnome xdg-desktop-portal-gtk \
      xdg-dbus-proxy \
+     qt5ct \
      ttf-font-awesome \
      ttf-patrick-hand-full \
      ttf-roboto-slab \
