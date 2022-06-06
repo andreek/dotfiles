@@ -68,6 +68,7 @@ set noshowmode
 syntax on
 " Color Scheme
 colorscheme gruvbox
+set background = "light"
 " Show Line numbers
 set number
 " Visual line marking 80 characters (vim 7.3)
@@ -110,6 +111,8 @@ nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>f :NERDTreeFind<CR>
 " Close NERDtree when selecting a file
 let NERDTreeQuitOnOpen=1
+" Show hidden files by default
+let NERDTreeShowHidden=1
 
 silent! nmap <C-p> :NERDTreeToggle<CR>
 silent! map <F3> :NERDTreeFind<CR>
@@ -147,7 +150,6 @@ autocmd BufEnter *.js nmap <Leader><Leader> :w<CR>:!node %:p<CR>
 autocmd BufEnter *.js nmap <Leader>t :w<CR>:!npx jest --verbose --findRelatedTests %:p<CR>
 " Execute eslint fix with current file
 autocmd BufEnter *.js nmap <Leader>e :w<CR>:!npx eslint --fix %:p<CR>:e!<CR>
-" Execute current file with python
 
 autocmd BufEnter *.json set filetype=json
 autocmd BufEnter *.uce set filetype=html
@@ -188,5 +190,5 @@ function! SetBackgroundMode(...)
         let &background = s:new_bg
     endif
 endfunction
-call SetBackgroundMode()
 call timer_start(3000, "SetBackgroundMode", {"repeat": -1})
+call SetBackgroundMode()
