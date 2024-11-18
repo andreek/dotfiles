@@ -1,15 +1,15 @@
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/pack/syntax/start/syntastic
-	url = git://github.com/vim-syntastic/syntastic.git
+	url = https://github.com/vim-syntastic/syntastic.git
 [submodule ".vim/bundle/ack.vim"]
 	path = .vim/pack/dev/start/ack.vim
-	url = git://github.com/mileszs/ack.vim.git
+	url = https://github.com/mileszs/ack.vim.git
 [submodule ".vim/bundle/nerdtree"]
 	path = .vim/pack/dev/start/nerdtree
-	url = git://github.com/scrooloose/nerdtree
+	url = https://github.com/preservim/nerdtree
 [submodule ".vim/bundle/vim-fugitive"]
 	path = .vim/pack/dev/start/vim-fugitive
-	url = git://github.com/tpope/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
 [submodule ".vim/bundle/vim-polyglot"]
 	path = .vim/pack/syntax/start/vim-polygot
 	url = https://github.com/sheerun/vim-polyglot
