@@ -4,8 +4,9 @@ DOCK_FILE=~/.docked
 HOSTNAME=$(hostname -s)
 
 if [[ "$HOSTNAME" == "desktop" ]]; then
-  MONITOR=DVI-I-1 polybar --reload main &
-  MONITOR=DVI-D-0 polybar --reload mainLeft &
+  MONITOR=DP-2 polybar --reload main &
+  MONITOR=HDMI-1 polybar --reload mainLeft &
+  MONITOR=DP-0 polybar --reload mainLeft &
 elif [[ "$HOSTNAME" == "pico" ]]; then
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
     bar="plug"

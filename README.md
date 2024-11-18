@@ -21,7 +21,7 @@ sudo pacman -S rofi \
      libinput-gestures \
      wmctrl \
      xdotool \
-     xdg-desktop-portal xdg-desktop-portal-kde xdg-desktop-portal-gnome xdg-desktop-portal-gtk \
+     xdg-desktop-portal xdg-desktop-portal-kde xdg-desktop-portal-gtk \
      xdg-dbus-proxy \
      qt5ct \
      ttf-font-awesome \

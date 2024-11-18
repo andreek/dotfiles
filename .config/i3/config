@@ -74,26 +74,25 @@ bindsym $mod+a focus parent
 bindsym $mod+1 workspace MESSAGES
 bindsym $mod+2 workspace WEB
 bindsym $mod+3 workspace DEV
-bindsym $mod+4 workspace SERVER
+bindsym $mod+4 workspace CLOUD
 bindsym $mod+5 workspace MONITOR
 bindsym $mod+6 workspace SPOTIFY
 bindsym $mod+7 workspace MISC
 bindsym $mod+8 workspace BACKUP
 bindsym $mod+9 workspace STEAM
-bindsym $mod+0 workspace 10
-bindsym $mod+c workspace CSGO
+bindsym $mod+0 workspace CSGO
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace MESSAGES
 bindsym $mod+Shift+2 move container to workspace WEB
 bindsym $mod+Shift+3 move container to workspace DEV
-bindsym $mod+Shift+4 move container to workspace SERVER
+bindsym $mod+Shift+4 move container to workspace CLOUD
 bindsym $mod+Shift+5 move container to workspace MONITOR
 bindsym $mod+Shift+6 move container to workspace SPOTIFY
 bindsym $mod+Shift+7 move container to workspace MISC
 bindsym $mod+Shift+8 move container to workspace BACKUP
 bindsym $mod+Shift+9 move container to workspace STEAM
-bindsym $mod+Shift+11 move container to workspace CSGO
+bindsym $mod+Shift+0 move container to workspace CSGO
 
 bindsym $mod+x move workspace to output right
 bindsym $mod+y move workspace to output let
@@ -140,7 +139,9 @@ bindsym $mod+r mode "resize"
 # window assignments
 assign [class="(?i)Steam"] workspace STEAM
 assign [title="(?i)OpenGL"] workspace CSGO
-assign [class="(?i)firefox"] workspace STEAM
+assign [class="(?i)steam_app_1466860"] workspace CSGO
+assign [title="^SquadGame.*"] workspace CSGO
+assign [class="(?i)firefox"] workspace WEB
 assign [class="(?i)chromium"] workspace WEB
 assign [class="Spotify"] workspace SPOTIFY
 assign [class="(?i)thunderbird"] workspace MESSAGES
@@ -160,12 +161,10 @@ bindsym $mod+p exec rofi -show ssh
 bindsym $mod+Tab exec rofi -show window
 
 exec_always $HOME/.local/bin/screens.sh
+exec_always $HOME/mounttrack.sh
 
 exec --no-startup-id feh --bg-scale $HOME/docs/misc/wallpaper.png
 exec --no-startup-id twmnd
 exec --no-startup-id xbindkeys
-exec --no-startup-id nm-applet
-exec --no-startup-id clipit
 exec --no-startup-id pa-applet
-exec --no-startup-id blueman-applet
-
+exec --no-startup-id /usr/bin/clipit

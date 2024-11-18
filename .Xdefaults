@@ -1,7 +1,7 @@
 xterm*background: #111111
 xterm*foreground: #babdb6
-xterm*faceName:           xft:Roboto Mono:pixelsize=13:antialias=true:autohint=true
-xterm*boldFont:           xft:Roboto Mono:pixelsize=13:antialias=true:autohint=true
+xterm*faceName:           xft:Monospace:pixelsize=14:antialias=true:autohint=true
+xterm*boldFont:           xft:Monospace:pixelsize=14:antialias=true:autohint=true
 xterm*dynamicColors:      true
 xterm*utf8:               2
 xterm*eightBitInput:      true
@@ -33,7 +33,8 @@ xterm*metaSendsEscape: true
 *color3:  #eab93d
 *color11: #ffc123
 ! DarkBlue + Blue
-*color4:  #204a87
+*color4:  #cfcfcf
+! *color4:  #204a87
 *color12: #3465a4
 ! DarkMangenta + Mangenta
 *color5:  #ce5c00

@@ -20,19 +20,19 @@ border-color = #00000000
 padding-left = 2
 padding-right = 2
 
-module-margin-left = 0
-module-margin-right = 0
+module-margin-left = 3
+module-margin-right = 3
 
 font-0 = Fira Mono:pixelsize=10;3
 font-1 = Font Awesome 5 Free:pixelsize=12;3
 font-2 = Font Awesome 5 Free Solid:pixelsize=12;3
 font-3 = Font Awesome 5 Brands:pixelsize=12;3
-font-4 = "Patrick Hand:style=Regular:pixelsize=12;3"
+font-4 = "Patrick Hand:style=Regular:pixelsize=13;3"
 font-5 = "Roboto:pixelsize=12;3"
 
-modules-left = powermenu separator eth separator wifi
+modules-left = powermenu eth
 modules-center = i3 
-modules-right =  date
+modules-right = podman pkgupdates-available flatpak date
 
 tray-position = right
 tray-background = ${colors.tray}

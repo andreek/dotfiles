@@ -28,6 +28,10 @@ if v:version >= 703
   set undofile
   set undodir=~/.vim/undo
 endif
+if has('nvim')
+  set undofile
+  set undodir=~/.config/nvim/undo
+endif
 set completeopt=menuone,longest
 " Ignore certain things
 set wildignore+=.git,*/node_modules/*
@@ -35,6 +39,9 @@ if !has('nvim')
     set ttymouse=xterm2
 endif
 set foldlevel=9999
+
+" spell
+set spell
 
 " ------------------------------------------------------------------------------
 " Syntastic
@@ -46,17 +53,15 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_wq = 1
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
-
 
 " ------------------------------------------------------------------------------
 " Powerline
 " ------------------------------------------------------------------------------
-set rtp+=~/.vim/pack/dev/start/powerline/powerline/bindings/vim
-let g:powerline_pycmd = 'py3'
-let g:Powerline_symbols = 'fancy'
+"set rtp+=~/.vim/pack/dev/start/powerline/powerline/bindings/vim
+"let g:powerline_pycmd = 'py3'
+"let g:Powerline_symbols = 'fancy'
 set laststatus=2
 set showtabline=2
 set noshowmode
@@ -147,13 +152,15 @@ let g:jsx_ext_required = 0
 " Execute current file with node.js
 autocmd BufEnter *.js nmap <Leader><Leader> :w<CR>:!node %:p<CR>
 " Execute related jest tests with current file
-autocmd BufEnter *.js nmap <Leader>t :w<CR>:!npx jest --verbose --findRelatedTests %:p<CR>
+autocmd BufEnter *.js nmap <Leader>t :w<CR>:!pnpx jest --verbose --findRelatedTests %:p<CR>
 " Execute eslint fix with current file
-autocmd BufEnter *.js nmap <Leader>e :w<CR>:!npx eslint --fix %:p<CR>:e!<CR>
+autocmd BufEnter *.js nmap <Leader>e :w<CR>:!pnpx eslint --fix %:p<CR>:e!<CR>
 
 autocmd BufEnter *.json set filetype=json
 autocmd BufEnter *.uce set filetype=html
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+
+let g:node_host_prog = '/usr/local/bin/neovim-node-host'
 
 " ------------------------------------------------------------------------------
 " Python
@@ -167,7 +174,18 @@ autocmd BufEnter *.py nmap <Leader><Leader> :w<CR>:!python %:p<CR>
 " load vim-go and reload current file
 autocmd BufEnter *.go nmap <Leader><Leader> :GoRun<CR>
 autocmd BufEnter *.go nmap <Leader>l :e!<CR>
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd Filetype go setlocal ts=4 sts=4 sw=4
+
+let g:go_fmt_autosave = 1
+let g:go_fmt_command = "goimports"
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 1
 
 " ------------------------------------------------------------------------------
 " snipMate
@@ -190,5 +208,5 @@ function! SetBackgroundMode(...)
         let &background = s:new_bg
     endif
 endfunction
-call timer_start(3000, "SetBackgroundMode", {"repeat": -1})
+" call timer_start(3000, "SetBackgroundMode", {"repeat": -1})
 call SetBackgroundMode()

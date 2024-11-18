@@ -126,7 +126,7 @@ ws-icon-0 = 1
 ws-icon-1 = MESSAGES;
 ws-icon-2 = WEB;
 ws-icon-3 = DEV;
-ws-icon-4 = SERVER;
+ws-icon-4 = CLOUD;
 ws-icon-5 = MONITOR;
 ws-icon-6 = SPOTIFY;
 ws-icon-7 = BACKUP;
@@ -166,12 +166,12 @@ label-disconnected-foreground = ${colors.grayout}
 
 [module/eth]
 type = internal/network
-interface = enp0s31f6
+interface = eno1
 interval = 5.0
 
 format-connected-underline = 
-label-connected =  %local_ip%@%linkspeed%
-label-connected-foreground = ${colors.highlight}
+label-connected =  %{T1}%local_ip%@%linkspeed%
+label-connected-foreground = ${colors.foreground-alt}
 
 format-disconnected = <label-disconnected>
 label-disconnected = 
@@ -182,12 +182,12 @@ type = internal/date
 interval = 1
 
 date = "%d.%m.%y"
-time = %I:%M%
+time = %I:%M:%S
 
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline =
 
-label = " %date%  %time%"
+label =  %{T1}%date% - %time%
 
 [module/temperature]
 type = internal/temperature
@@ -244,39 +244,37 @@ label =  %output%
 ;   <label> (default)
 format = <label>
 format-background = ${colors.background}
-format-foreground = ${colors.lightRed}
+format-foreground = ${colors.secondary}
 format-padding = 1
 
 ; Available tokens:
 ;   %output%
 ; Default: %output%
 
-[module/podman]
+[module/flatpak]
 type = custom/script
-; Available tokens:
-;   %counter%
-; Command to be executed (using "/usr/bin/env sh -c [command]")
-exec = "/home/andree/.local/bin/containers.sh"
-; Will the script output continous content?
-; Default: false
+exec = "/home/andree/.local/bin/flatpak_updates.sh"
 tail = false
-
-; Seconds to sleep between updates
-; Default: 2 (0 if `tail = true`)
-interval = 30
-
-label =  %{T6}%output:0:60:.. ]%%{T-}
-
-; Available tags:
-;   <output> - deprecated
-;   <label> (default)
+interval = 300
+label =  %output%
 format = <label>
 format-background = ${colors.background}
-label-foreground = ${colors.highlight}
+format-foreground = ${colors.secondary}
+format-padding = 1
 
-; Available tokens:
-;   %output%
-; Default: %output%
+[module/podman]
+type = custom/script
+exec = "/home/andree/.local/bin/containers.sh"
+tail = false
+interval = 10
+
+label =  %{T1}%output:0:60:.. ]%%{T-} 
+
+format =  <label>
+format-background = ${colors.background}
+format-foreground = ${colors.foreground-alt}
+; label-foreground = ${colors.highlight}
+label-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
 type = custom/menu
@@ -295,7 +293,7 @@ menu-0-0 = ""
 menu-0-0-exec = /usr/bin/i3lock -c 000000
 menu-0-0-foreground =  ${colors.gold}
 menu-0-1 = 
-menu-0-1-exec = systemctl suspend
+menu-0-1-exec = /usr/bin/i3lock -c 000000 && systemctl suspend
 menu-0-1-foreground =  ${colors.grayout}
 menu-0-2 = 
 menu-0-2-exec = menu-open-1
