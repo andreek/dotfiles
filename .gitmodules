@@ -31,6 +31,6 @@
 [submodule ".vim/pack/dev/start/gruvbox"]
 	path = .vim/pack/colors/start/gruvbox
 	url = https://github.com/morhetz/gruvbox.git
-[submodule ".vim/pack/dev/opt/vim-go"]
-	path = .vim/pack/dev/opt/vim-go
+[submodule ".vim/pack/dev/start/vim-go"]
+	path = .vim/pack/dev/start/vim-go
 	url = https://github.com/fatih/vim-go.git
