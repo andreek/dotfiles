@@ -1,15 +1,3 @@
-[submodule ".vim/bundle/syntastic"]
-	path = .vim/pack/syntax/start/syntastic
-	url = https://github.com/vim-syntastic/syntastic.git
-[submodule ".vim/bundle/ack.vim"]
-	path = .vim/pack/dev/start/ack.vim
-	url = https://github.com/mileszs/ack.vim.git
-[submodule ".vim/bundle/nerdtree"]
-	path = .vim/pack/dev/start/nerdtree
-	url = https://github.com/preservim/nerdtree
-[submodule ".vim/bundle/vim-fugitive"]
-	path = .vim/pack/dev/start/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive
 [submodule ".vim/bundle/vim-polyglot"]
 	path = .vim/pack/syntax/start/vim-polygot
 	url = https://github.com/sheerun/vim-polyglot
@@ -34,3 +22,18 @@
 [submodule ".vim/pack/dev/start/vim-go"]
 	path = .vim/pack/dev/start/vim-go
 	url = https://github.com/fatih/vim-go.git
+[submodule ".vim/pack/dev/start/vim-fugitive"]
+	path = .vim/pack/dev/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule ".vim/pack/dev/start/vim-ack"]
+	path = .vim/pack/dev/start/vim-ack
+	url = https://github.com/mileszs/ack.vim.git
+[submodule ".vim/pack/dev/start/nerdtree"]
+	path = .vim/pack/dev/start/nerdtree
+	url = https://github.com/preservim/nerdtree.git
+[submodule ".vim/pack/dev/start/syntastic"]
+	path = .vim/pack/dev/start/syntastic
+	url = https://github.com/vim-syntastic/syntastic.git
+[submodule ".vim/pack/dev/start/terraform"]
+	path = .vim/pack/dev/start/terraform
+	url = https://github.com/hashivim/vim-terraform.git
