@@ -37,3 +37,13 @@
 [submodule ".vim/pack/dev/start/terraform"]
 	path = .vim/pack/dev/start/terraform
 	url = https://github.com/hashivim/vim-terraform.git
+[submodule ".vim/pack/syntax/start/vim-javascript"]
+	path = .vim/pack/syntax/start/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule ".vim/pack/syntax/start/typescript-vim"]
+	path = .vim/pack/syntax/start/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git
+[submodule ".vim/pack/syntax/start/coc"]
+	path = .vim/pack/syntax/start/coc
+	url = https://github.com/neoclide/coc.nvim.git
+	ignore = dirty
