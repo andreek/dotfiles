@@ -50,6 +50,13 @@ vim:
 	mkdir -p ${HOME}/.vim/undo
 	ln -s ${REPO}/.vimrc ${HOME}/.vimrc
 
+vim-server: vim
+	rm ${HOME}/.vimrc
+	git -C ${REPO} submodule init
+	git rm -f .vim/pack/syntax/start/coc
+	git -C ${REPO} submodule update
+	ln -s ${REPO}/.vimrc-server ${HOME}/.vimrc
+
 clean: cleanvim
 	rm -rf ${HOME}/.config/i3
 	rm -rf ${HOME}/.config/polybar

@@ -1,0 +1,198 @@
+" ------------------------------------------------------------------------------
+" Basics
+" ------------------------------------------------------------------------------
+" Be IMproved
+set nocompatible
+" Recognize file types / set indent mode
+filetype plugin indent on
+" Share OS clipboard
+set clipboard=unnamed
+" Allow mouse usage in terminal vim
+set mouse=a
+" Per project vimrc
+set exrc
+" Source vimrc files after editing
+autocmd bufwritepost .vimrc source <afile>
+" Indention
+set autoindent
+" Automatically safe files when switchin between them / leaving vim
+set autowriteall
+autocmd FocusLost * silent! :wa
+autocmd TabLeave * silent! :wa
+" Do not create swap files, we're using git after all
+set nobackup
+set nowritebackup
+set noswapfile
+" Enable vim to remember undo chains between sessions (vim 7.3)
+if v:version >= 703
+  set undofile
+  set undodir=~/.vim/undo
+endif
+if has('nvim')
+  set undofile
+  set undodir=~/.config/nvim/undo
+endif
+set completeopt=menuone,longest
+" Ignore certain things
+set wildignore+=.git,*/node_modules/*
+if !has('nvim')
+    set ttymouse=xterm2
+endif
+set foldlevel=9999
+
+" spell
+set spell
+
+" ------------------------------------------------------------------------------
+" Syntastic
+" ------------------------------------------------------------------------------
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_javascript_checkers = ['eslint']
+
+" ------------------------------------------------------------------------------
+" Powerline
+" ------------------------------------------------------------------------------
+"set rtp+=~/.vim/pack/dev/start/powerline/powerline/bindings/vim
+"let g:powerline_pycmd = 'py3'
+"let g:Powerline_symbols = 'fancy'
+set laststatus=2
+set showtabline=2
+set noshowmode
+
+" ------------------------------------------------------------------------------
+" Styling
+" ------------------------------------------------------------------------------
+" Syntax highlighting
+syntax on
+" Color Scheme
+colorscheme gruvbox
+set background = "light"
+" Show Line numbers
+set number
+" Visual line marking 80 characters (vim 7.3)
+if v:version >= 703
+  set colorcolumn=80
+endif
+set list
+" Highlight active line
+set cursorline
+hi CursorLine cterm=none
+" Highlight search results
+set hlsearch
+" Invisible characters
+autocmd BufEnter * set listchars=tab:▸\ ,eol:¬
+
+" ------------------------------------------------------------------------------
+" Tabs vs. Spaces
+" ------------------------------------------------------------------------------
+" Spaces instead of tabs
+set expandtab
+" 2 spaces for each tab
+set tabstop=2
+"" 2 spaces for indention
+set shiftwidth=2
+" ------------------------------------------------------------------------------
+" fugitive.vim
+" ------------------------------------------------------------------------------
+nnoremap <Leader>s :tabnew<CR>:G<CR>
+nnoremap <Leader>d :tabe %:p<CR>:Gdiff<CR>
+nnoremap <Leader>h :tabnew<CR>:Gclog<CR>:copen<CR>
+nnoremap <Leader>l :tabe %:p<CR>:Gclog %:p<CR>:copen<CR>
+
+
+" ------------------------------------------------------------------------------
+" NERDTree
+" ------------------------------------------------------------------------------
+" Nerd Tree (toggle)
+nnoremap <Leader>n :NERDTreeToggle<CR>
+" Nerd Tree (reveal current file)
+nnoremap <Leader>f :NERDTreeFind<CR>
+" Close NERDtree when selecting a file
+let NERDTreeQuitOnOpen=1
+" Show hidden files by default
+let NERDTreeShowHidden=1
+
+silent! nmap <C-p> :NERDTreeToggle<CR>
+silent! map <F3> :NERDTreeFind<CR>
+
+let g:NERDTreeMapActivateNode="<F3>"
+let g:NERDTreeMapPreview="<F4>"
+let g:NERDTreeWinSize=40
+
+" ------------------------------------------------------------------------------
+" Key bindings
+" ------------------------------------------------------------------------------
+" Edit user .vimrc
+nmap <Leader>v :e ~/.vimrc<CR>
+" Edit project .vimrc
+map <Leader>V :e .vimrc<CR>
+" Edit project .env
+map <Leader>C :e .env<CR>
+" Clear search results when hitting space
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+" Copy path to current buffer into clipboard
+nnoremap <leader><space> :!echo -n % \| xclip -selection clipboard<CR><CR>
+
+let g:jsx_ext_required = 0
+
+" ------------------------------------------------------------------------------
+" File type specifics
+" ------------------------------------------------------------------------------
+
+" ------------------------------------------------------------------------------
+" JavaScript
+" ------------------------------------------------------------------------------
+" Execute current file with node.js
+autocmd BufEnter *.js nmap <Leader><Leader> :w<CR>:!node %:p<CR>
+" Execute related jest tests with current file
+autocmd BufEnter *.js nmap <Leader>t :w<CR>:!pnpx jest --verbose --findRelatedTests %:p<CR>
+" Execute eslint fix with current file
+autocmd BufEnter *.js nmap <Leader>e :w<CR>:!pnpx eslint --fix %:p<CR>:e!<CR>
+
+autocmd BufEnter *.json set filetype=json
+autocmd BufEnter *.uce set filetype=html
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+
+let g:node_host_prog = '/usr/local/bin/neovim-node-host'
+
+let g:javascript_plugin_jsdoc = 1
+
+" ------------------------------------------------------------------------------
+" Python
+" ------------------------------------------------------------------------------
+" Execute current file with python
+autocmd BufEnter *.py nmap <Leader><Leader> :w<CR>:!python %:p<CR>
+
+" ------------------------------------------------------------------------------
+" GO
+" ------------------------------------------------------------------------------
+" load vim-go and reload current file
+autocmd BufEnter *.go nmap <Leader><Leader> :GoRun<CR>
+autocmd BufEnter *.go nmap <Leader>l :e!<CR>
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd Filetype go setlocal ts=4 sts=4 sw=4
+
+let g:go_fmt_autosave = 1
+let g:go_fmt_command = "goimports"
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 1
+
+" ------------------------------------------------------------------------------
+" snipMate
+" ------------------------------------------------------------------------------
+let g:snipMate = { 'snippet_version' : 1 }
+
+" Super replace
+command! -nargs=* Argdo noautocmd silent argdo <args>

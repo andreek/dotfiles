@@ -13,9 +13,6 @@
 [submodule ".vim/bundle/vim-addon-mw-utils"]
 	path = .vim/pack/syntax/start/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
-[submodule ".vim/pack/dev/start/powerline"]
-	path = .vim/pack/dev/start/powerline
-	url = https://github.com/powerline/powerline
 [submodule ".vim/pack/dev/start/gruvbox"]
 	path = .vim/pack/colors/start/gruvbox
 	url = https://github.com/morhetz/gruvbox.git
