@@ -1,16 +1,17 @@
 #
 # i3 config file (v4)
+
 #
 # class                 border  bground text    indicator child_border
 client.focused          #000000 #084638 #FFFFFF #000000   #000000
-client.focused_inactive #000000 #222222 #FFFFFF #484E50   #5F676A
+client.focused_inactive #000000 #222222 #FFFFFF #484E50   #000000
 client.unfocused        #000000 #222222 #969696 #292D2E   #222222
 client.urgent           #000000 #BD2C40 #FFFFFF #BD2C40   #BD2C40
 client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 
 client.background       #FFFFFF
 
-font pango:Roboto Bold 11
+font pango:"SpaceMono Nerd Font" Bold 10
 
 set $mod Mod4
 
@@ -65,7 +66,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -95,7 +96,13 @@ bindsym $mod+Shift+9 move container to workspace STEAM
 bindsym $mod+Shift+0 move container to workspace CSGO
 
 bindsym $mod+x move workspace to output right
-bindsym $mod+y move workspace to output let
+bindsym $mod+z move workspace to output left
+
+workspace DEV gaps inner 10
+workspace DEV gaps outer 0
+workspace CLOUD gaps inner 10
+workspace CLOUD gaps outer 0
+smart_gaps on
 
 # bind workspaces to monitors
 workspace CSGO output primary
@@ -140,7 +147,8 @@ bindsym $mod+r mode "resize"
 assign [class="(?i)Steam"] workspace STEAM
 assign [title="(?i)OpenGL"] workspace CSGO
 assign [class="(?i)steam_app_1466860"] workspace CSGO
-assign [title="^SquadGame.*"] workspace CSGO
+assign [class="steam\_app\_393380"] workspace CSGO
+assign [class="steam\_app\_730"] workspace CSGO
 assign [class="(?i)firefox"] workspace WEB
 assign [class="(?i)chromium"] workspace WEB
 assign [class="Spotify"] workspace SPOTIFY
@@ -150,8 +158,10 @@ assign [title="(?i)keepassxc"] workspace MISC
 assign [title="(?i)Flipper"] workspace MONITOR
 assign [class="scrcpy"] workspace MONITOR
 
-for_window [class=".*"] title_format "  %title"
-for_window [class="scrcpy"] border pixel 1
+for_window [class=".*"] title_format " <b>%title</b> | %class"
+for_window [all] title_window_icon padding 5px
+for_window [all] border none
+for_window [class="UXTerm"] border pixel 1
 for_window [title="Android Emulator"] floating enabled
 for_window [title="(?i)OpenGL"] floating enabled
 
@@ -159,12 +169,12 @@ for_window [title="(?i)OpenGL"] floating enabled
 bindsym $mod+space exec rofi -show run
 bindsym $mod+p exec rofi -show ssh
 bindsym $mod+Tab exec rofi -show window
+bindsym $mod+a [class="UXTerm" title="nvim"] focus
 
 exec_always $HOME/.local/bin/screens.sh
-exec_always $HOME/mounttrack.sh
+#exec_always $HOME/mounttrack.sh
 
-exec --no-startup-id feh --bg-scale $HOME/docs/misc/wallpaper.png
+exec --no-startup-id feh --bg-scale $HOME/docs/misc/wallpaper_new.png
 exec --no-startup-id twmnd
 exec --no-startup-id xbindkeys
 exec --no-startup-id pa-applet
-exec --no-startup-id /usr/bin/clipit

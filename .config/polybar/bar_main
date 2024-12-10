@@ -27,12 +27,15 @@ font-0 = Fira Mono:pixelsize=10;3
 font-1 = Font Awesome 5 Free:pixelsize=12;3
 font-2 = Font Awesome 5 Free Solid:pixelsize=12;3
 font-3 = Font Awesome 5 Brands:pixelsize=12;3
-font-4 = "Patrick Hand:style=Regular:pixelsize=13;3"
+font-4 = "SpaceMono Nerd Font:style=Regular:pixelsize=12;3"
 font-5 = "Roboto:pixelsize=12;3"
+font-6 = "SpaceMono Nerd Font:style=Bold:pixelsize=12;3"
 
-modules-left = powermenu eth
+modules-left = powermenu eth wifi trackpad-power
 modules-center = i3 
-modules-right = podman pkgupdates-available flatpak date
+modules-right = podman pkgupdates-available flatpak date 
 
 tray-position = right
 tray-background = ${colors.tray}
+tray-padding = 10
+tray-size = 75

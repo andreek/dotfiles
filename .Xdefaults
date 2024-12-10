@@ -1,7 +1,7 @@
 xterm*background: #111111
 xterm*foreground: #babdb6
-xterm*faceName:           xft:Monospace:pixelsize=14:antialias=true:autohint=true
-xterm*boldFont:           xft:Monospace:pixelsize=14:antialias=true:autohint=true
+xterm*faceName:           xft:SpaceMono Nerd Font:pixelsize=16:antialias=true:autohint=true
+xterm*boldFont:           xft:SpaceMono Nerd Font:pixelsize=16:antialias=true:autohint=true
 xterm*dynamicColors:      true
 xterm*utf8:               2
 xterm*eightBitInput:      true

@@ -38,6 +38,7 @@ scripts:
 	ln -s ${REPO}/scripts/screens.sh ${HOME}/.local/bin/
 	ln -s ${REPO}/scripts/dock.sh ${HOME}/.local/bin/
 	ln -s ${REPO}/scripts/containers.sh ${HOME}/.local/bin/
+	ln -s ${REPO}/scripts/trackpad-battery.sh ${HOME}/.local/bin/
 
 twmn:
 	mkdir -p ${HOME}/.config/twmn/
@@ -67,6 +68,7 @@ clean: cleanvim
 	rm -rf ${HOME}/.local/bin/screens.sh
 	rm -rf ${HOME}/.local/bin/dock.sh
 	rm -rf ${HOME}/.local/bin/containers.sh
+	rm -rf ${HOME}/.local/bin/trackpad-battery.sh
 
 cleangtk:
 	rm -rf ${HOME}/.gtkrc-2.0
