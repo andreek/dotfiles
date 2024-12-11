@@ -3,7 +3,7 @@
 
 #
 # class                 border  bground text    indicator child_border
-client.focused          #000000 #084638 #FFFFFF #000000   #000000
+client.focused          #000000 #084638 #FFFFFF #000000   #CFCFCF
 client.focused_inactive #000000 #222222 #FFFFFF #484E50   #000000
 client.unfocused        #000000 #222222 #969696 #292D2E   #222222
 client.urgent           #000000 #BD2C40 #FFFFFF #BD2C40   #BD2C40
@@ -98,10 +98,8 @@ bindsym $mod+Shift+0 move container to workspace CSGO
 bindsym $mod+x move workspace to output right
 bindsym $mod+z move workspace to output left
 
-workspace DEV gaps inner 10
-workspace DEV gaps outer 0
-workspace CLOUD gaps inner 10
-workspace CLOUD gaps outer 0
+gaps inner 10
+gaps outer 0
 smart_gaps on
 
 # bind workspaces to monitors
@@ -145,7 +143,6 @@ bindsym $mod+r mode "resize"
 
 # window assignments
 assign [class="(?i)Steam"] workspace STEAM
-assign [title="(?i)OpenGL"] workspace CSGO
 assign [class="(?i)steam_app_1466860"] workspace CSGO
 assign [class="steam\_app\_393380"] workspace CSGO
 assign [class="steam\_app\_730"] workspace CSGO
@@ -153,9 +150,7 @@ assign [class="(?i)firefox"] workspace WEB
 assign [class="(?i)chromium"] workspace WEB
 assign [class="Spotify"] workspace SPOTIFY
 assign [class="(?i)thunderbird"] workspace MESSAGES
-assign [class="(?i)evolution"] workspace MESSAGES
 assign [title="(?i)keepassxc"] workspace MISC
-assign [title="(?i)Flipper"] workspace MONITOR
 assign [class="scrcpy"] workspace MONITOR
 
 for_window [class=".*"] title_format " <b>%title</b> | %class"
@@ -163,7 +158,6 @@ for_window [all] title_window_icon padding 5px
 for_window [all] border none
 for_window [class="UXTerm"] border pixel 1
 for_window [title="Android Emulator"] floating enabled
-for_window [title="(?i)OpenGL"] floating enabled
 
 #custom
 bindsym $mod+space exec rofi -show run
