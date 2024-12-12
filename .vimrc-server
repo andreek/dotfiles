@@ -71,8 +71,12 @@ set noshowmode
 " ------------------------------------------------------------------------------
 " Syntax highlighting
 syntax on
+" Available values: 'hard', 'medium'(default), 'soft'
+let g:everforest_background = 'medium'
+" For better performance
+let g:everforest_better_performance = 1
 " Color Scheme
-colorscheme gruvbox
+colorscheme everforest
 set background = "light"
 " Show Line numbers
 set number
