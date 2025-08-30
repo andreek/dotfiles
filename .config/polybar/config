@@ -5,10 +5,11 @@
 ;=====================================================
 [colors]
 background-alt = #211f20
-foreground-alt = #dfdfdf
+;foreground-alt = #dfdfdf
+foreground-alt = #7e7e7e
 grayout = #949494
 primary = #ffb52a
-secondary = #e60053
+secondary = #FACCDC
 alert = #bd2c40
 green = #225046
 gold = #996515
@@ -17,7 +18,7 @@ highlight= #6e8f58
 tray = #211f20
 
 background     = #211f20
-foreground     = ${xrdb:foreground}
+;foreground     = ${xrdb:foreground}
 
 ;=====================================================
 ;
@@ -52,7 +53,7 @@ warn-percentage = 75
 
 spacing = 2
 format-mounted =  <label-mounted>
-label-mounted = %{F#6e8f58} %{F#dfdfdf} %{T6} %used% / %total%
+label-mounted = %{F#7e7e7e} %{T6} %used% / %total%
 label-mounted-foreground = ${colors.foreground-alt}
 label-unmounted = %mountpoint% -
 label-unmounted-foreground = ${colors.foreground-alt}
@@ -91,6 +92,7 @@ ramp-capacity-1-foreground = ${colors.gold}
 type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
+strip-wsnumbers = true
 wrapping-scroll = false
 
 reverse-scroll = false
@@ -126,23 +128,22 @@ label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 5
 
 ws-icon-default = 
-ws-icon-0 = 1
-ws-icon-1 = MESSAGES;
-ws-icon-2 = WEB;
-ws-icon-3 = DEV;
-ws-icon-4 = CLOUD;
-ws-icon-5 = MONITOR;
-ws-icon-6 = SPOTIFY;
-ws-icon-7 = BACKUP;
-ws-icon-8 = STEAM;
-ws-icon-9 = MISC;
-ws-icon-10 = CSGO;
+ws-icon-0 = 0: GAMES;
+ws-icon-1 = 1: MESSAGES;
+ws-icon-2 = 2: WEB;
+ws-icon-3 = 3: DEV;
+ws-icon-4 = 4: CLOUD;
+ws-icon-5 = 5: MONITOR;
+ws-icon-6 = 6: MEDIA;
+ws-icon-7 = 8: BACKUP;
+ws-icon-8 = 9: STEAM;
+ws-icon-9 = 7: MISC;
 
 [module/cpu]
 type = internal/cpu
 interval = 3
 format-prefix = " "
-format-prefix-foreground = ${colors.highlight}
+format-prefix-foreground = ${colors.foreground-alt}
 label-foreground = ${colors.foreground-alt}
 format-underline = 
 label = %{T6} %percentage%%
@@ -152,7 +153,7 @@ type = internal/memory
 interval = 20
 spacing = 2
 format-prefix = " "
-format-prefix-foreground = ${colors.highlight}
+format-prefix-foreground = ${colors.foreground-alt}
 label-foreground = ${colors.foreground-alt}
 format-underline = 
 label = %{T6} %gb_used% / %gb_total%
@@ -176,7 +177,7 @@ interface = enp4s0
 interval = 5.0
 
 label-connected = 
-label-connected-foreground = ${colors.highlight}
+label-connected-foreground = ${colors.foreground-alt}
 
 format-packetloss = <animation-packetloss> <label-connected>
 
@@ -200,19 +201,20 @@ interval = 1
 date = "%d.%m.%y"
 time = %I:%M:%S
 
-format-prefix = ""
-format-prefix-foreground = ${colors.highlight}
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
 format-underline =
 
 label = %{T1} %date% - %time%
+label-foreground = ${colors.foreground-alt}
 
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
-hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon4/temp35_input
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon7/temp35_input
 warn-temperature = 90
 
-format = %{F#6e8f58}<ramp> %{F#dfdfdf} <label>
+format = %{F#7e7e7e}<ramp> <label>
 format-underline = #f50a4d
 format-warn = <ramp> <label-warn>
 format-warn-foreground = ${colors.alert}
@@ -296,21 +298,23 @@ label-foreground = ${colors.foreground-alt}
 [module/powermenu]
 type = custom/menu
 
-format-spacing = 1
-format-padding = 1
+format-spacing = 2
+format-padding = 2
+format-close-background = ${colors.secondary}
 
 label-open = ""
 label-open-foreground =  ${colors.foreground-alt}
 label-close = ""
-label-close-foreground = ${colors.foreground-alt}
+label-close-foreground = "#FFFFFF"
 label-separator = " "
 label-separator-foreground = ${colors.foreground-alt}
+label-separator-background = ${colors.secondary}
 
 menu-0-0 = ""
 menu-0-0-exec = /usr/bin/i3lock -c 000000
 menu-0-0-foreground =  ${colors.gold}
 menu-0-1 = 
-menu-0-1-exec = /usr/bin/i3lock -c 000000 && systemctl suspend
+menu-0-1-exec = systemctl suspend
 menu-0-1-foreground =  ${colors.grayout}
 menu-0-2 = 
 menu-0-2-exec = menu-open-1
@@ -353,6 +357,22 @@ content-foreground = ${colors.grayout}
 #scroll-up = ~/.config/polybar/pavolume.sh --up
 #scroll-down = ~/.config/polybar/pavolume.sh --down
 
+[module/switchaudio]
+type = custom/script
+tail = true
+label = %output%
+label-foreground =  ${colors.foreground-alt}
+exec = ~/.config/polybar/switchaudio.sh
+click-left = ~/.config/polybar/switchaudio.sh --toggle
+
+[module/switchlang]
+type = custom/script
+interval = 0.6
+label = %output%
+label-foreground =  ${colors.foreground-alt}
+exec = ~/.config/polybar/switchlang.sh
+click-left = ~/.config/polybar/switchlang.sh --toggle
+
 [module/trackpad-power]
 type = custom/script
 interval = 600
@@ -364,6 +384,7 @@ exec = ~/.local/bin/trackpad-battery.sh --show_icon battery_hid_3coa6of6ob9o55o1
 type = custom/script
 interval = 600
 label-font = 2
+label-foreground = ${colors.foreground-alt}
 exec = ~/.local/bin/weather.sh
 
 [settings]

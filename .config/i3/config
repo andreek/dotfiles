@@ -13,6 +13,11 @@ client.background       #FFFFFF
 
 font pango:"SpaceMono Nerd Font" Bold 10
 
+gaps inner 10
+gaps outer 0
+smart_gaps on
+smart_borders on
+
 set $mod Mod4
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -72,40 +77,39 @@ bindsym $mod+Shift+space floating toggle
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace MESSAGES
-bindsym $mod+2 workspace WEB
-bindsym $mod+3 workspace DEV
-bindsym $mod+4 workspace CLOUD
-bindsym $mod+5 workspace MONITOR
-bindsym $mod+6 workspace SPOTIFY
-bindsym $mod+7 workspace MISC
-bindsym $mod+8 workspace BACKUP
-bindsym $mod+9 workspace STEAM
-bindsym $mod+0 workspace CSGO
+bindsym $mod+0 workspace 0: GAMES
+bindsym $mod+1 workspace 1: MESSAGES
+bindsym $mod+2 workspace 2: WEB
+bindsym $mod+3 workspace 3: DEV
+bindsym $mod+4 workspace 4: CLOUD
+bindsym $mod+5 workspace 5: MONITOR
+bindsym $mod+6 workspace 6: MEDIA
+bindsym $mod+7 workspace 7: MISC
+bindsym $mod+8 workspace 8: BACKUP
+bindsym $mod+9 workspace 9: STEAM
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace MESSAGES
-bindsym $mod+Shift+2 move container to workspace WEB
-bindsym $mod+Shift+3 move container to workspace DEV
-bindsym $mod+Shift+4 move container to workspace CLOUD
-bindsym $mod+Shift+5 move container to workspace MONITOR
-bindsym $mod+Shift+6 move container to workspace SPOTIFY
-bindsym $mod+Shift+7 move container to workspace MISC
-bindsym $mod+Shift+8 move container to workspace BACKUP
-bindsym $mod+Shift+9 move container to workspace STEAM
-bindsym $mod+Shift+0 move container to workspace CSGO
+bindsym $mod+Shift+0 move container to workspace 0: GAMES
+bindsym $mod+Shift+1 move container to workspace 1: MESSAGES
+bindsym $mod+Shift+2 move container to workspace 2: WEB
+bindsym $mod+Shift+3 move container to workspace 3: DEV
+bindsym $mod+Shift+4 move container to workspace 4: CLOUD
+bindsym $mod+Shift+5 move container to workspace 5: MONITOR
+bindsym $mod+Shift+6 move container to workspace 6: MEDIA
+bindsym $mod+Shift+7 move container to workspace 7: MISC
+bindsym $mod+Shift+8 move container to workspace 8: BACKUP
+bindsym $mod+Shift+9 move container to workspace 9: STEAM
 
 bindsym $mod+x move workspace to output right
 bindsym $mod+z move workspace to output left
 
-gaps inner 10
-gaps outer 0
-smart_gaps on
-
 # bind workspaces to monitors
-workspace CSGO output primary
-workspace DEV output primary
-workspace WEB output primary
+workspace 0 output primary
+workspace 3 output primary
+workspace 2 output primary
+workspace 4 output DP-0
+workspace 7 output DP-0
+workspace 1 output HDMI-1
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -138,26 +142,7 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-
 bindsym $mod+r mode "resize"
-
-# window assignments
-assign [class="(?i)Steam"] workspace STEAM
-assign [class="(?i)steam_app_1466860"] workspace CSGO
-assign [class="steam\_app\_393380"] workspace CSGO
-assign [class="steam\_app\_730"] workspace CSGO
-assign [class="(?i)firefox"] workspace WEB
-assign [class="(?i)chromium"] workspace WEB
-assign [class="Spotify"] workspace SPOTIFY
-assign [class="(?i)thunderbird"] workspace MESSAGES
-assign [title="(?i)keepassxc"] workspace MISC
-assign [class="scrcpy"] workspace MONITOR
-
-for_window [class=".*"] title_format " <b>%title</b> | %class"
-for_window [all] title_window_icon padding 5px
-for_window [all] border none
-for_window [class="UXTerm"] border pixel 1
-for_window [title="Android Emulator"] floating enabled
 
 #custom
 bindsym $mod+space exec rofi -show run
@@ -165,10 +150,33 @@ bindsym $mod+p exec rofi -show ssh
 bindsym $mod+Tab exec rofi -show window
 bindsym $mod+a [class="UXTerm" title="nvim"] focus
 
-exec_always $HOME/.local/bin/screens.sh
-#exec_always $HOME/mounttrack.sh
+# window assignments
+assign [class="(?i)Steam"] workspace 9: STEAM
+assign [class="(?i)firefox"] workspace 2: WEB
+assign [class="(?i)chromium"] workspace 2: WEB
+assign [class="Spotify"] workspace 6: MEDIA
+assign [class="(?i)thunderbird"] workspace 1: MESSAGES
+assign [title="(?i)keepassxc"] workspace 7: MISC
+assign [class="scrcpy"] workspace 5: MONITOR
+assign [class="NoiseTorch-ng"] workspace 1: MESSAGES
 
+for_window [class=".*"] title_format " <b>%title</b> | %class"
+for_window [all] title_window_icon padding 5px
+for_window [all] border none
+for_window [class="UXTerm"] border pixel 1
+for_window [title="Android Emulator"] floating enabled
+for_window [class="^steam_app_.*"] move to workspace 0: GAMES
+for_window [title="^nvim.*"] fullscreen toggle
+for_window [title="^steam_app_.*"] fullscreen toggle
+
+# configure screens and bars
+exec_always $HOME/.local/bin/screens.sh
+exec_always /usr/bin/setxkbmap -layout us,de -option grp:alt_shift_toggle
+
+# autostart
 exec --no-startup-id feh --bg-scale $HOME/docs/misc/wallpaper_new.png
 exec --no-startup-id twmnd
 exec --no-startup-id xbindkeys
 exec --no-startup-id pa-applet
+exec --no-startup-id xss-lock -- i3lock -c 000000
+exec --no-startup-id xcompmgr -c -C -t-5 -l-5 -r4.2 -o.9

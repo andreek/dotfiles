@@ -31,7 +31,7 @@ font-4 = "SpaceMono Nerd Font:style=Regular:pixelsize=12;3"
 font-5 = "Roboto:pixelsize=12;3"
 font-6 = "SpaceMono Nerd Font:style=Bold:pixelsize=12;3"
 
-modules-left = powermenu eth wifi trackpad-power
+modules-left = powermenu eth wifi switchaudio switchlang trackpad-power
 modules-center = i3 
 modules-right = podman pkgupdates-available flatpak date 
 
