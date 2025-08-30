@@ -47,3 +47,9 @@
 [submodule ".vim/pack/colors/start/everforest"]
 	path = .vim/pack/colors/start/everforest
 	url = https://github.com/sainnhe/everforest.git
+[submodule ".vim/pack/dev/start/vim-systemd-syntax"]
+	path = .vim/pack/dev/start/vim-systemd-syntax
+	url = https://github.com/wgwoods/vim-systemd-syntax
+[submodule ".vim/pack/dev/start/rust.vim"]
+	path = .vim/pack/dev/start/rust.vim
+	url = https://github.com/rust-lang/rust.vim
