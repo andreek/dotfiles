@@ -1,4 +1,4 @@
-.PHONY: all clean cleanvim cleangtk desktop i3 polybar twmn vim scripts darkman libinput gtk
+.PHONY: all clean cleanvim cleangtk desktop i3 polybar twmn vim nvim scripts darkman libinput gtk
 
 ifeq ($(strip $(REPO)),)
 REPO := /home/andree/.dotfiles
@@ -7,7 +7,7 @@ ifeq ($(strip $(HOME)),)
 HOME := /home/andree
 endif
 
-all: vim desktop
+all: vim nvim desktop
 
 desktop: i3 polybar scripts twmn darkman libinput gtk
 
@@ -58,6 +58,9 @@ vim-server: vim
 	git -C ${REPO} submodule update
 	ln -s ${REPO}/.vimrc-server ${HOME}/.vimrc
 
+nvim:
+	ln -s ${REPO}/nvim ${HOME}/.config/nvim
+
 clean: cleanvim
 	rm -rf ${HOME}/.config/i3
 	rm -rf ${HOME}/.config/polybar
@@ -78,3 +81,4 @@ cleangtk:
 cleanvim:
 	rm -rf ${HOME}/.vim
 	rm -rf ${HOME}/.vimrc
+	rm -rf ${HOME}/.config/nvim
