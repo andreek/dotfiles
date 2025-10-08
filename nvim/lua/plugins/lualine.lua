@@ -17,7 +17,7 @@ return {
           {
             'filetype',
             colored = true,   -- Displays filetype icon in color if set to true
-            icon_only = false, -- Display only an icon for filetype
+            icon_only = true, -- Display only an icon for filetype
           }
         }
       }
