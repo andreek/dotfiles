@@ -109,25 +109,8 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.g.node_host_prog = '/usr/local/bin/neovim-node-host'
 vim.g.javascript_plugin_jsdoc = 1
 
--- Switch dark/light mode (optional, uses gsettings)
-local function SetBackgroundMode()
-  local new_bg = "light"
-  local mode = vim.fn.systemlist("gsettings get org.gnome.desktop.interface color-scheme")[1]
-  if mode and mode:find("prefer-dark") then
-    new_bg = "dark"
-  end
-  if vim.opt.background:get() ~= new_bg then
-    vim.opt.background = new_bg
-  end
-end
--- Uncomment to enable periodic background mode checking:
--- vim.fn.timer_start(5000, SetBackgroundMode, { ["repeat"] = -1 })
--- SetBackgroundMode()
---
-
 -- Key bindings
-vim.keymap.set("n", "<Leader>v", ":e ~/.vimrc<CR>", { desc = "Edit user .vimrc" })
-vim.keymap.set("n", "<Leader>V", ":e .vimrc<CR>", { desc = "Edit project .vimrc" })
+vim.keymap.set("n", "<Leader>v", ":e ~/.config/nvim/lua/config/lazy.lua<CR>", { desc = "Edit user .vimrc" })
 vim.keymap.set("n", "<Leader>C", ":e .env<CR>", { desc = "Edit project .env" })
 vim.keymap.set("n", "<Space>", ":nohlsearch<Bar>:echo<CR>", { silent = true, desc = "Clear search" })
 vim.keymap.set("n", "<Leader><Space>", ":!echo -n % | xclip -selection clipboard<CR><CR>", { silent = true, desc = "Copy buffer path" })
