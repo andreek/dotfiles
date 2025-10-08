@@ -1,4 +1,4 @@
-.PHONY: all clean cleanvim cleangtk desktop i3 polybar twmn vim nvim scripts darkman libinput gtk
+.PHONY: all alacritty clean cleanvim cleangtk cleanalacritty desktop i3 polybar twmn vim nvim scripts darkman libinput gtk
 
 ifeq ($(strip $(REPO)),)
 REPO := /home/andree/.dotfiles
@@ -9,7 +9,7 @@ endif
 
 all: vim nvim desktop
 
-desktop: i3 polybar scripts twmn darkman libinput gtk
+desktop: i3 polybar scripts twmn darkman libinput gtk alacritty
 
 i3:
 	ln -s ${REPO}/.config/i3 ${HOME}/.config/i3
@@ -61,7 +61,10 @@ vim-server: vim
 nvim:
 	ln -s ${REPO}/nvim ${HOME}/.config/nvim
 
-clean: cleanvim
+alacritty:
+	ln -s ${REPO}/alacritty ${HOME}/.config/alacritty
+
+clean: cleanvim cleanalacritty
 	rm -rf ${HOME}/.config/i3
 	rm -rf ${HOME}/.config/polybar
 	rm -rf ${HOME}/.config/twmn
@@ -82,3 +85,6 @@ cleanvim:
 	rm -rf ${HOME}/.vim
 	rm -rf ${HOME}/.vimrc
 	rm -rf ${HOME}/.config/nvim
+
+cleanalacritty:
+	rm -rf ${HOME}/.config/alacritty

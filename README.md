@@ -28,7 +28,9 @@ sudo pacman -S rofi \
      ttf-patrick-hand-full \
      ttf-roboto-slab \
      ttf-roboto-mono \
-     ttf-fira-code
+     ttf-fira-code \
+     alacritty \
+     nvim
 ```
 
 ## features

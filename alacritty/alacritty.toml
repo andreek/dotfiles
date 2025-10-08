@@ -1,0 +1,15 @@
+[font]
+normal = { family = "monospace", style = "Regular" }
+size = 11.0
+
+[window]
+padding = { x = 5,  y = 5 }
+opacity = 0.8
+dynamic_padding = true
+decorations = "None"
+
+[selection]
+save_to_clipboard = true
+
+[mouse]
+hide_when_typing = true
