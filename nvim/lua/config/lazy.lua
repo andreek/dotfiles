@@ -117,6 +117,7 @@ vim.keymap.set("n", "<Leader><Space>", ":!echo -n % | xclip -selection clipboard
 vim.keymap.set('n', '<C-Left>', ':tabprevious<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-Right>', ':tabnext<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-q>', ':tabc<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-a>', ':AvanteToggle<CR>', { noremap = true, silent = true })
 
 -- Setup lazy.nvim
 require("lazy").setup({
