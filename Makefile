@@ -37,6 +37,8 @@ scripts:
 	ln -s ${REPO}/scripts/dock.sh ${HOME}/.local/bin/
 	ln -s ${REPO}/scripts/containers.sh ${HOME}/.local/bin/
 	ln -s ${REPO}/scripts/trackpad-battery.sh ${HOME}/.local/bin/
+	ln -s ${REPO}/scripts/switchaudio.sh ${HOME}/.local/bin/
+	ln -s ${REPO}/scripts/switchlang.sh ${HOME}/.local/bin/
 
 twmn:
 	mkdir -p ${HOME}/.config/twmn/
@@ -73,6 +75,8 @@ clean: cleanvim cleanalacritty
 	rm -rf ${HOME}/.local/bin/dock.sh
 	rm -rf ${HOME}/.local/bin/containers.sh
 	rm -rf ${HOME}/.local/bin/trackpad-battery.sh
+	rm -rf ${HOME}/.local/bin/switchaudio.sh
+	rm -rf ${HOME}/.local/bin/switchlang.sh
 
 cleangtk:
 	rm -rf ${HOME}/.config/qt5ct

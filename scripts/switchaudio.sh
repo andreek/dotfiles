@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-INTERNAL_AUDIO="alsa_output.pci-0000_00_1f.3.pro-output-0"
+INTERNAL_AUDIO="alsa_output.pci-0000_00_1f.3.analog-stereo"
 USB_AUDIO="alsa_output.usb-Creative_Technology_Ltd_Sound_BlasterX_G1_00057707-00.iec958-stereo"
 
 # Toggles sink between INTERNAL_AUDIO (headphones) and USB_AUDIO (speaker)

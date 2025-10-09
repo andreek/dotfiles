@@ -362,16 +362,16 @@ type = custom/script
 tail = true
 label = %output%
 label-foreground =  ${colors.foreground-alt}
-exec = ~/.config/polybar/switchaudio.sh
-click-left = ~/.config/polybar/switchaudio.sh --toggle
+exec = ~/.local/bin/switchaudio.sh
+click-left = ~/.local/bin/switchaudio.sh --toggle
 
 [module/switchlang]
 type = custom/script
 interval = 0.6
 label = %output%
 label-foreground =  ${colors.foreground-alt}
-exec = ~/.config/polybar/switchlang.sh
-click-left = ~/.config/polybar/switchlang.sh --toggle
+exec = ~/.local/bin/switchlang.sh
+click-left = ~/.local/bin/switchlang.sh --toggle
 
 [module/trackpad-power]
 type = custom/script
