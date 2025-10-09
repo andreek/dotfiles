@@ -17,8 +17,6 @@ i3:
 	ln -s ${REPO}/.xinitrc ${HOME}/.xinitrc
 
 gtk:
-	ln -s ${REPO}/.config/.gtkrc-2.0 ${HOME}/.gtkrc-2.0
-	ln -s ${REPO}/.config/gtk-3.0 ${HOME}/.config/gtk-3.0
 	ln -s ${REPO}/.config/qt5ct ${HOME}/.config/qt5ct
 
 libinput:
@@ -77,8 +75,6 @@ clean: cleanvim cleanalacritty
 	rm -rf ${HOME}/.local/bin/trackpad-battery.sh
 
 cleangtk:
-	rm -rf ${HOME}/.gtkrc-2.0
-	rm -rf ${HOME}/.config/gtk-3.0
 	rm -rf ${HOME}/.config/qt5ct
 
 cleanvim:
