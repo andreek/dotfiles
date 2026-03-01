@@ -33,10 +33,37 @@ sudo pacman -S rofi \
      nvim
 ```
 
+## wayland dependencies
+
+```shell
+sudo pacman -S sway \
+     swaylock \
+     swayidle \
+     swaybg \
+     waybar \
+     mako \
+     rofi-wayland \
+     xorg-xwayland \
+     xdg-desktop-portal \
+     xdg-desktop-portal-wlr \
+     xdg-desktop-portal-gtk \
+     pipewire \
+     pipewire-pulse \
+     wireplumber \
+     grim \
+     slurp \
+     wl-clipboard \
+     ttf-font-awesome \
+     ttf-fira-code \
+     otf-font-awesome \
+     alacritty \
+     jq
+```
+
 ## features
 
- * i3
- * polybar (ttf-font-awesome)
+ * i3 + polybar (X11)
+ * sway + waybar (Wayland)
  * vim
 
 ## install
@@ -45,6 +72,12 @@ sudo pacman -S rofi \
 
 ```shell
 HOME=<home> REPO=<repo> make all
+```
+
+### wayland
+
+```shell
+HOME=<home> REPO=<repo> make wayland
 ```
 
 ### vim
