@@ -1,0 +1,187 @@
+#
+# sway config file
+#
+
+# class                 border  bground text    indicator child_border
+client.focused          #000000 #084638 #FFFFFF #000000   #CFCFCF
+client.focused_inactive #000000 #222222 #FFFFFF #484E50   #000000
+client.unfocused        #000000 #222222 #969696 #292D2E   #222222
+client.urgent           #000000 #BD2C40 #FFFFFF #BD2C40   #BD2C40
+client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
+
+client.background       #FFFFFF
+
+font pango:"SpaceMono Nerd Font" Bold 10
+
+gaps inner 10
+gaps outer 0
+smart_gaps on
+smart_borders on
+
+set $mod Mod4
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod normal
+
+# start a terminal
+bindsym $mod+Return exec alacritty
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# focus the parent container
+#bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# switch to workspace
+bindsym $mod+0 workspace "0: GAMES"
+bindsym $mod+1 workspace "1: MESSAGES"
+bindsym $mod+2 workspace "2: WEB"
+bindsym $mod+3 workspace "3: DEV"
+bindsym $mod+4 workspace "4: CLOUD"
+bindsym $mod+5 workspace "5: MONITOR"
+bindsym $mod+6 workspace "6: MEDIA"
+bindsym $mod+7 workspace "7: MISC"
+bindsym $mod+8 workspace "8: BACKUP"
+bindsym $mod+9 workspace "9: STEAM"
+
+# move focused container to workspace
+bindsym $mod+Shift+0 move container to workspace "0: GAMES"
+bindsym $mod+Shift+1 move container to workspace "1: MESSAGES"
+bindsym $mod+Shift+2 move container to workspace "2: WEB"
+bindsym $mod+Shift+3 move container to workspace "3: DEV"
+bindsym $mod+Shift+4 move container to workspace "4: CLOUD"
+bindsym $mod+Shift+5 move container to workspace "5: MONITOR"
+bindsym $mod+Shift+6 move container to workspace "6: MEDIA"
+bindsym $mod+Shift+7 move container to workspace "7: MISC"
+bindsym $mod+Shift+8 move container to workspace "8: BACKUP"
+bindsym $mod+Shift+9 move container to workspace "9: STEAM"
+
+bindsym $mod+x move workspace to output right
+bindsym $mod+z move workspace to output left
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+e exec swaynag -t warning -m 'Logout?' -B 'Yes' 'swaymsg exit'
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # Pressing left will shrink the window's width.
+        # Pressing right will grow the window's width.
+        # Pressing up will shrink the window's height.
+        # Pressing down will grow the window's height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# custom
+bindsym $mod+space exec rofi -show run
+bindsym $mod+p exec rofi -show ssh
+bindsym $mod+Tab exec rofi -show window
+
+# window assignments
+assign [app_id="(?i)steam"] workspace "9: STEAM"
+assign [class="(?i)Steam"] workspace "9: STEAM"
+assign [app_id="(?i)firefox"] workspace "2: WEB"
+assign [class="(?i)firefox"] workspace "2: WEB"
+assign [app_id="(?i)chromium"] workspace "2: WEB"
+assign [class="(?i)chromium"] workspace "2: WEB"
+assign [class="Spotify"] workspace "6: MEDIA"
+assign [app_id="(?i)thunderbird"] workspace "1: MESSAGES"
+assign [class="(?i)thunderbird"] workspace "1: MESSAGES"
+assign [title="(?i)keepassxc"] workspace "7: MISC"
+assign [app_id="scrcpy"] workspace "5: MONITOR"
+assign [class="scrcpy"] workspace "5: MONITOR"
+assign [app_id="NoiseTorch-ng"] workspace "1: MESSAGES"
+assign [class="NoiseTorch-ng"] workspace "1: MESSAGES"
+
+default_border none
+for_window [app_id="UXTerm"] border pixel 1
+for_window [class="UXTerm"] border pixel 1
+for_window [title="Android Emulator"] floating enable
+for_window [class="^steam_app_.*"] move to output DP-2, move to workspace "0: GAMES"
+for_window [title="^nvim.*"] fullscreen toggle
+for_window [title="^steam_app_.*"] fullscreen toggle
+
+# keyboard layout
+input type:keyboard {
+    xkb_layout us,de
+    xkb_options grp:alt_shift_toggle
+}
+
+# wallpaper
+output * bg ~/docs/misc/wallpaper_new.png fill
+
+# host-specific config (outputs, workspace assignments)
+include ~/.config/sway/config.d/host.conf
+
+# autostart
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec mako
+exec swayidle -w \
+    timeout 300 'swaylock -f -c 000000' \
+    timeout 600 'swaymsg "output * power off"' \
+    resume 'swaymsg "output * power on"' \
+    before-sleep 'swaylock -f -c 000000'
+
+bar {
+    swaybar_command waybar
+}

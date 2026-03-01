@@ -1,0 +1,21 @@
+font=SpaceMono Nerd Font 10
+background-color=#211f20
+text-color=#dfdfdf
+border-color=#6e8f58
+border-size=2
+border-radius=0
+default-timeout=3000
+margin=5
+padding=10
+width=350
+max-visible=3
+anchor=bottom-right
+
+[urgency=low]
+border-color=#949494
+
+[urgency=critical]
+background-color=#B95353
+text-color=#ffffff
+border-color=#bd2c40
+default-timeout=0

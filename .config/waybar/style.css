@@ -1,0 +1,101 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Fira Mono", "Font Awesome 6 Free", "SpaceMono Nerd Font", monospace;
+    font-size: 12px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: #211f20;
+    color: #7e7e7e;
+}
+
+#workspaces button {
+    padding: 0 10px;
+    color: #949494;
+    background-color: #211f20;
+    border: none;
+}
+
+#workspaces button.focused {
+    color: #996515;
+    border-bottom: 2px solid #ffffff;
+}
+
+#workspaces button.visible {
+    color: #996515;
+    border-bottom: 2px solid #ffffff;
+}
+
+#workspaces button.urgent {
+    background-color: #B95353;
+    color: #211f20;
+}
+
+#clock,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#network,
+#battery,
+#tray,
+#language {
+    padding: 0 8px;
+    color: #7e7e7e;
+}
+
+#custom-powermenu {
+    padding: 0 12px;
+    color: #7e7e7e;
+}
+
+#custom-lock {
+    padding: 0 12px;
+    color: #996515;
+}
+
+#custom-podman {
+    padding: 0 8px;
+    color: #7e7e7e;
+}
+
+#custom-pkgupdates,
+#custom-flatpak {
+    padding: 0 8px;
+    color: #FACCDC;
+}
+
+#custom-weather {
+    padding: 0 8px;
+    color: #7e7e7e;
+}
+
+#battery.charging {
+    color: #996515;
+}
+
+#battery.full {
+    color: #6e8f58;
+}
+
+#battery.warning:not(.charging) {
+    color: #996515;
+}
+
+#battery.critical:not(.charging) {
+    color: #B95353;
+}
+
+#temperature.critical {
+    color: #FACCDC;
+}
+
+#network.disconnected {
+    color: #949494;
+}
+
+#tray {
+    padding: 0 10px;
+}

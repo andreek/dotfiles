@@ -1,0 +1,229 @@
+[
+    // Bar 1 - Main (desktop primary monitor)
+    {
+        "output": "DP-2",
+        "position": "top",
+        "height": 30,
+        "modules-left": ["custom/powermenu", "network#eth", "network#wifi", "sway/language"],
+        "modules-center": ["sway/workspaces"],
+        "modules-right": ["custom/podman", "custom/pkgupdates", "custom/flatpak", "clock", "tray"],
+
+        "sway/workspaces": {
+            "disable-scroll": true,
+            "all-outputs": false,
+            "format": "{icon}  {name}",
+            "format-icons": {
+                "0: GAMES": "",
+                "1: MESSAGES": "",
+                "2: WEB": "",
+                "3: DEV": "",
+                "4: CLOUD": "",
+                "5: MONITOR": "",
+                "6: MEDIA": "",
+                "7: MISC": "",
+                "8: BACKUP": "",
+                "9: STEAM": "",
+                "default": ""
+            }
+        },
+
+        "clock": {
+            "format": " {:%d.%m.%y - %I:%M:%S}",
+            "interval": 1,
+            "tooltip-format": "{:%A, %B %d, %Y}"
+        },
+
+        "network#eth": {
+            "interface": "enp4s0",
+            "interval": 5,
+            "format-ethernet": "",
+            "format-disconnected": "",
+            "tooltip-format-ethernet": "{ipaddr}"
+        },
+
+        "network#wifi": {
+            "interface": "wlp3s0",
+            "interval": 5,
+            "format-wifi": " {signalStrength}% {ipaddr} ({essid})",
+            "format-disconnected": "",
+            "tooltip-format-wifi": "{essid} {signalStrength}%"
+        },
+
+        "sway/language": {
+            "format": " {}",
+            "tooltip": false
+        },
+
+        "custom/powermenu": {
+            "format": "",
+            "on-click": "swaynag -t warning -m 'Power Menu' -B 'Lock' 'swaylock -f -c 000000' -B 'Suspend' 'systemctl suspend' -B 'Reboot' 'reboot' -B 'Power Off' 'poweroff'",
+            "tooltip": false
+        },
+
+        "custom/podman": {
+            "exec": "~/.local/bin/containers.sh",
+            "interval": 10,
+            "format": " {}",
+            "tooltip": false
+        },
+
+        "custom/flatpak": {
+            "exec": "~/.local/bin/flatpak_updates.sh",
+            "interval": 300,
+            "format": " {}",
+            "tooltip": false
+        },
+
+        "tray": {
+            "spacing": 10,
+            "icon-size": 16
+        }
+    },
+
+    // Bar 2 - Secondary monitors (desktop)
+    {
+        "output": ["HDMI-A-2", "DP-1"],
+        "position": "top",
+        "height": 30,
+        "modules-left": ["temperature", "cpu", "memory", "disk"],
+        "modules-center": ["sway/workspaces"],
+        "modules-right": ["custom/weather", "clock"],
+
+        "sway/workspaces": {
+            "disable-scroll": true,
+            "all-outputs": false,
+            "format": "{icon}  {name}",
+            "format-icons": {
+                "0: GAMES": "",
+                "1: MESSAGES": "",
+                "2: WEB": "",
+                "3: DEV": "",
+                "4: CLOUD": "",
+                "5: MONITOR": "",
+                "6: MEDIA": "",
+                "7: MISC": "",
+                "8: BACKUP": "",
+                "9: STEAM": "",
+                "default": ""
+            }
+        },
+
+        "temperature": {
+            "thermal-zone": 0,
+            "critical-threshold": 90,
+            "format": "{icon} {temperatureC}°C",
+            "format-icons": ["", "", ""]
+        },
+
+        "cpu": {
+            "interval": 3,
+            "format": " {usage}%"
+        },
+
+        "memory": {
+            "interval": 20,
+            "format": " {used:0.1f}G / {total:0.1f}G"
+        },
+
+        "disk": {
+            "path": "/",
+            "interval": 500,
+            "format": " {used} / {total}"
+        },
+
+        "custom/weather": {
+            "exec": "~/.local/bin/weather.sh",
+            "interval": 600,
+            "format": "{}",
+            "tooltip": false
+        },
+
+        "clock": {
+            "format": " {:%d.%m.%y - %I:%M:%S}",
+            "interval": 1,
+            "tooltip-format": "{:%A, %B %d, %Y}"
+        }
+    },
+
+    // Bar 3 - Laptop
+    {
+        "output": "eDP-1",
+        "position": "top",
+        "height": 30,
+        "modules-left": ["custom/powermenu", "network#wifi", "temperature"],
+        "modules-center": ["sway/workspaces"],
+        "modules-right": ["clock", "battery", "custom/lock", "tray"],
+
+        "sway/workspaces": {
+            "disable-scroll": true,
+            "all-outputs": false,
+            "format": "{icon}  {name}",
+            "format-icons": {
+                "0: GAMES": "",
+                "1: MESSAGES": "",
+                "2: WEB": "",
+                "3: DEV": "",
+                "4: CLOUD": "",
+                "5: MONITOR": "",
+                "6: MEDIA": "",
+                "7: MISC": "",
+                "8: BACKUP": "",
+                "9: STEAM": "",
+                "default": ""
+            }
+        },
+
+        "custom/powermenu": {
+            "format": "",
+            "on-click": "swaynag -t warning -m 'Power Menu' -B 'Lock' 'swaylock -f -c 000000' -B 'Suspend' 'systemctl suspend' -B 'Reboot' 'reboot' -B 'Power Off' 'poweroff'",
+            "tooltip": false
+        },
+
+        "network#wifi": {
+            "interface": "wlp3s0",
+            "interval": 5,
+            "format-wifi": " {signalStrength}%",
+            "format-disconnected": "",
+            "tooltip-format-wifi": "{essid} {signalStrength}% {ipaddr}"
+        },
+
+        "temperature": {
+            "thermal-zone": 0,
+            "critical-threshold": 90,
+            "format": "{icon} {temperatureC}°C",
+            "format-icons": ["", "", ""]
+        },
+
+        "clock": {
+            "format": " {:%d.%m.%y - %I:%M:%S}",
+            "interval": 1,
+            "tooltip-format": "{:%A, %B %d, %Y}"
+        },
+
+        "battery": {
+            "bat": "BAT0",
+            "interval": 5,
+            "states": {
+                "full": 100,
+                "good": 80,
+                "warning": 30,
+                "critical": 15
+            },
+            "format": "{icon} {capacity}%",
+            "format-charging": " {capacity}%",
+            "format-full": " 100%",
+            "format-icons": ["", "", "", "", ""]
+        },
+
+        "custom/lock": {
+            "format": "",
+            "on-click": "swaylock -f -c 000000",
+            "tooltip": false
+        },
+
+        "tray": {
+            "spacing": 10,
+            "icon-size": 16
+        }
+    }
+]

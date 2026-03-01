@@ -1,4 +1,4 @@
-.PHONY: all alacritty clean cleanvim cleangtk cleanalacritty desktop i3 polybar twmn vim nvim scripts darkman libinput gtk
+.PHONY: all alacritty clean cleanvim cleangtk cleanalacritty cleanwayland desktop wayland i3 polybar sway waybar mako portal twmn vim nvim scripts darkman libinput gtk
 
 ifeq ($(strip $(REPO)),)
 REPO := /home/andree/.dotfiles
@@ -10,6 +10,8 @@ endif
 all: vim nvim desktop
 
 desktop: i3 polybar scripts twmn darkman libinput gtk alacritty
+
+wayland: sway waybar mako portal
 
 i3:
 	ln -s ${REPO}/.config/i3 ${HOME}/.config/i3
@@ -30,6 +32,24 @@ darkman:
 
 polybar:
 	ln -s ${REPO}/.config/polybar ${HOME}/.config/polybar
+
+sway:
+	mkdir -p ${HOME}/.config/sway/config.d
+	ln -s ${REPO}/.config/sway/config ${HOME}/.config/sway/config
+	ln -sf ${REPO}/.config/sway/config.d/$(hostname -s).conf ${HOME}/.config/sway/config.d/host.conf
+
+waybar:
+	mkdir -p ${HOME}/.config/waybar
+	ln -s ${REPO}/.config/waybar/config.jsonc ${HOME}/.config/waybar/config
+	ln -s ${REPO}/.config/waybar/style.css ${HOME}/.config/waybar/style.css
+
+mako:
+	mkdir -p ${HOME}/.config/mako
+	ln -s ${REPO}/.config/mako/config ${HOME}/.config/mako/config
+
+portal:
+	mkdir -p ${HOME}/.config/xdg-desktop-portal
+	ln -s ${HOME}/.config/xdg-desktop-portal/portals.conf ${HOME}/.config/xdg-desktop-portal/portals.conf
 
 scripts:
 	mkdir -p ${HOME}/.local/bin/
@@ -88,3 +108,9 @@ cleanvim:
 
 cleanalacritty:
 	rm -rf ${HOME}/.config/alacritty
+
+cleanwayland:
+	rm -rf ${HOME}/.config/sway
+	rm -rf ${HOME}/.config/waybar
+	rm -rf ${HOME}/.config/mako
+	rm -rf ${HOME}/.config/xdg-desktop-portal
