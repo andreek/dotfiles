@@ -1,5 +1,0 @@
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
-let &packpath=&runtimepath
-lua require('lualine').setup()
-lua require('nvim-treesitter.configs').setup{highlight={enable=true}}
-source ~/.vimrc

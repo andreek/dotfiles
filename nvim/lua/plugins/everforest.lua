@@ -19,8 +19,12 @@ return {
           vim.opt.background = new_bg
         end
       end
-      vim.fn.timer_start(5000, SetBackgroundMode, { ["repeat"] = -1 })
       SetBackgroundMode()
+
+      vim.api.nvim_create_autocmd("Signal", {
+        pattern = "SIGUSR1",
+        callback = SetBackgroundMode,
+      })
 
       vim.cmd("colorscheme everforest")
     end

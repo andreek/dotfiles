@@ -112,12 +112,12 @@ vim.g.javascript_plugin_jsdoc = 1
 -- Key bindings
 vim.keymap.set("n", "<Leader>v", ":e ~/.config/nvim/lua/config/lazy.lua<CR>", { desc = "Edit user .vimrc" })
 vim.keymap.set("n", "<Leader>C", ":e .env<CR>", { desc = "Edit project .env" })
-vim.keymap.set("n", "<Space>", ":nohlsearch<Bar>:echo<CR>", { silent = true, desc = "Clear search" })
+vim.keymap.set("n", "<Esc>", ":nohlsearch<Bar>:echo<CR>", { silent = true, desc = "Clear search" })
 vim.keymap.set("n", "<Leader><Space>", ":!echo -n % | xclip -selection clipboard<CR><CR>", { silent = true, desc = "Copy buffer path" })
 vim.keymap.set('n', '<C-Left>', ':tabprevious<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-Right>', ':tabnext<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-q>', ':tabc<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-a>', ':AvanteToggle<CR>', { noremap = true, silent = true })
+
 
 -- Setup lazy.nvim
 require("lazy").setup({

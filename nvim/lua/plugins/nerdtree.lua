@@ -7,7 +7,7 @@ return {
     -- NERDTree (toggle)
     vim.keymap.set("n", "<Leader>n", ":NERDTreeToggle<CR>", { silent = true, desc = "NERDTree Toggle" })
     -- NERDTree (reveal current file)
-    vim.keymap.set("n", "<Leader>f", ":NERDTreeFind<CR>", { silent = true, desc = "NERDTree Reveal File" })
+    vim.keymap.set("n", "<Leader>nf", ":NERDTreeFind<CR>", { silent = true, desc = "NERDTree Reveal File" })
     -- Extra keymaps
     vim.keymap.set("n", "<C-p>", ":NERDTreeToggle<CR>", { silent = true })
     vim.keymap.set("n", "<F3>", ":NERDTreeFind<CR>", { silent = true })

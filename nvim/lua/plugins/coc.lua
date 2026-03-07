@@ -68,15 +68,14 @@ return {
     vim.keymap.set("n", "<C-s>", "<Plug>(coc-range-select)", {silent = true})
     vim.keymap.set("x", "<C-s>", "<Plug>(coc-range-select)", {silent = true})
 
-    -- CocList mappings
-    vim.keymap.set("n", "<space>a", ":<C-u>CocList diagnostics<cr>", {silent = true})
-    vim.keymap.set("n", "<space>e", ":<C-u>CocList extensions<cr>", {silent = true})
-    vim.keymap.set("n", "<space>c", ":<C-u>CocList commands<cr>", {silent = true})
-    vim.keymap.set("n", "<space>o", ":<C-u>CocList outline<cr>", {silent = true})
-    -- vim.keymap.set("n", "<space>s", ":<C-u>CocList -I symbols<cr>", {silent = true})
-    vim.keymap.set("n", "<space>j", ":<C-u>CocNext<CR>", {silent = true})
-    vim.keymap.set("n", "<space>k", ":<C-u>CocPrev<CR>", {silent = true})
-    vim.keymap.set("n", "<space>p", ":<C-u>CocListResume<CR>", {silent = true})
+    -- CocList mappings (using <Leader>c prefix to avoid leader conflicts)
+    vim.keymap.set("n", "<Leader>ca", ":<C-u>CocList diagnostics<cr>", {silent = true})
+    vim.keymap.set("n", "<Leader>ce", ":<C-u>CocList extensions<cr>", {silent = true})
+    vim.keymap.set("n", "<Leader>cc", ":<C-u>CocList commands<cr>", {silent = true})
+    vim.keymap.set("n", "<Leader>co", ":<C-u>CocList outline<cr>", {silent = true})
+    vim.keymap.set("n", "<Leader>cj", ":<C-u>CocNext<CR>", {silent = true})
+    vim.keymap.set("n", "<Leader>ck", ":<C-u>CocPrev<CR>", {silent = true})
+    vim.keymap.set("n", "<Leader>cp", ":<C-u>CocListResume<CR>", {silent = true})
 
     -- Statusline
     vim.opt.statusline:append("%{coc#status()}%{get(b:,'coc_current_function','')}")
