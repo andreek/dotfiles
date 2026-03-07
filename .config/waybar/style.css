@@ -20,7 +20,7 @@ window#waybar {
 
 #workspaces button.focused {
     color: #ffffff;
-    border-bottom: 2px solid #996515;
+    border-bottom: 2px solid #7e7e7e;
     font-weight: bold;
 }
 

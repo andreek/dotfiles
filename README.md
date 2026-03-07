@@ -40,6 +40,7 @@ sudo pacman -S sway \
      swaylock \
      swayidle \
      swaybg \
+     sway-contrib \
      waybar \
      mako \
      rofi-wayland \

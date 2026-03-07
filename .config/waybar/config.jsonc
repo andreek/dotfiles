@@ -61,7 +61,7 @@
         },
 
         "custom/podman": {
-            "exec": "~/.local/bin/containersnew.sh",
+            "exec": "~/.local/bin/wcontainers.sh",
             "interval": 5,
             "return-type": "json",
             "tooltip": true
@@ -109,7 +109,7 @@
         },
 
         "temperature": {
-            "thermal-zone": 1,
+            "hwmon-path": ["/sys/class/hwmon/hwmon7/temp1_input", "/sys/class/thermal/thermal_zone0/temp"],
             "critical-threshold": 90,
             "format": "{icon} {temperatureC}°C",
             "format-icons": ["", "", ""]
@@ -188,7 +188,7 @@
         },
 
         "temperature": {
-            "thermal-zone": 0,
+            "hwmon-path": ["/sys/class/hwmon/hwmon7/temp1_input", "/sys/class/thermal/thermal_zone0/temp"],
             "critical-threshold": 90,
             "format": "{icon} {temperatureC}°C",
             "format-icons": ["", "", ""]
