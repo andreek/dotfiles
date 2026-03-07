@@ -137,6 +137,12 @@ bindsym $mod+space exec rofi -show run
 bindsym $mod+p exec rofi -show ssh
 bindsym $mod+Tab exec rofi -show window
 
+set $screenshot_out $(xdg-user-dir PICTURES)/screenshots/screenshot-$(date +"%Y%m%d-%H%M%S").webp
+
+bindsym $mod+Shift+s exec grimshot save screen $screenshot_out
+bindsym $mod+Shift+w exec grimshot save active $screenshot_out
+bindsym $mod+Shift+a exec grimshot save area $screenshot_out
+
 # window assignments
 assign [app_id="(?i)steam"] workspace "9: STEAM"
 assign [class="(?i)Steam"] workspace "9: STEAM"
@@ -159,7 +165,7 @@ for_window [class="UXTerm"] border pixel 1
 for_window [title="Android Emulator"] floating enable
 for_window [class="^steam_app_.*"] move to output DP-2, move to workspace "0: GAMES"
 for_window [title="^nvim.*"] fullscreen toggle
-for_window [title="^steam_app_.*"] fullscreen toggle
+#for_window [title="^steam_app_.*"] fullscreen toggle
 
 # keyboard layout
 input type:keyboard {
@@ -168,7 +174,7 @@ input type:keyboard {
 }
 
 # wallpaper
-output * bg ~/docs/misc/wallpaper_new.png fill
+output * bg /usr/share/backgrounds/archlinux/wave.png fill
 
 seat * xcursor_theme Bibata-Modern-Classic 24
 

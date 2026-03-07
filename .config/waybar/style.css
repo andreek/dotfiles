@@ -2,7 +2,7 @@
     border: none;
     border-radius: 0;
     font-family: "Fira Mono", "Font Awesome 6 Free", "SpaceMono Nerd Font", monospace;
-    font-size: 12px;
+    font-size: 14px;
     min-height: 0;
 }
 
@@ -15,17 +15,17 @@ window#waybar {
     padding: 0 10px;
     color: #949494;
     background-color: #211f20;
-    border: none;
+    border-bottom: 2px solid #211f20;
 }
 
 #workspaces button.focused {
-    color: #996515;
-    border-bottom: 2px solid #ffffff;
+    color: #ffffff;
+    border-bottom: 2px solid #996515;
+    font-weight: bold;
 }
 
 #workspaces button.visible {
-    color: #996515;
-    border-bottom: 2px solid #ffffff;
+    color: #ffffff;
 }
 
 #workspaces button.urgent {
@@ -42,7 +42,7 @@ window#waybar {
 #battery,
 #tray,
 #language {
-    padding: 0 8px;
+    padding: 0 6px;
     color: #7e7e7e;
 }
 
@@ -98,4 +98,12 @@ window#waybar {
 
 #tray {
     padding: 0 10px;
+}
+
+#custom-podman.active {
+    color: #a6e3a1;
+}
+
+#language.de {
+    color: #FACCDC;
 }

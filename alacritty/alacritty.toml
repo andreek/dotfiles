@@ -1,6 +1,6 @@
 [font]
 normal = { family = "monospace", style = "Regular" }
-size = 11.0
+size = 12.0
 
 [window]
 padding = { x = 5,  y = 5 }

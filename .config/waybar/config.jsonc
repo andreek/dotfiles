@@ -3,15 +3,15 @@
     {
         "output": "DP-2",
         "position": "top",
-        "height": 30,
-        "modules-left": ["custom/powermenu", "network#eth", "network#wifi", "sway/language"],
+        "height": 36,
+        "modules-left": ["custom/powermenu", "sway/language"],
         "modules-center": ["sway/workspaces"],
         "modules-right": ["custom/podman", "custom/pkgupdates", "custom/flatpak", "clock", "tray"],
 
         "sway/workspaces": {
             "disable-scroll": true,
             "all-outputs": false,
-            "format": "{icon}  {name}",
+            "format": "{icon} {name}",
             "format-icons": {
                 "0: GAMES": "",
                 "1: MESSAGES": "",
@@ -28,7 +28,7 @@
         },
 
         "clock": {
-            "format": " {:%d.%m.%y - %I:%M:%S}",
+            "format": " {:%I:%M:%S}",
             "interval": 1,
             "tooltip-format": "{:%A, %B %d, %Y}"
         },
@@ -61,10 +61,10 @@
         },
 
         "custom/podman": {
-            "exec": "~/.local/bin/containers.sh",
-            "interval": 10,
-            "format": " {}",
-            "tooltip": false
+            "exec": "~/.local/bin/containersnew.sh",
+            "interval": 5,
+            "return-type": "json",
+            "tooltip": true
         },
 
         "custom/flatpak": {
@@ -84,15 +84,15 @@
     {
         "output": ["HDMI-A-2", "DP-1"],
         "position": "top",
-        "height": 30,
+        "height": 36,
         "modules-left": ["temperature", "cpu", "memory", "disk"],
         "modules-center": ["sway/workspaces"],
-        "modules-right": ["custom/weather", "clock"],
+        "modules-right": [],
 
         "sway/workspaces": {
             "disable-scroll": true,
             "all-outputs": false,
-            "format": "{icon}  {name}",
+            "format": "{icon} {name}",
             "format-icons": {
                 "0: GAMES": "",
                 "1: MESSAGES": "",
@@ -109,7 +109,7 @@
         },
 
         "temperature": {
-            "thermal-zone": 0,
+            "thermal-zone": 1,
             "critical-threshold": 90,
             "format": "{icon} {temperatureC}°C",
             "format-icons": ["", "", ""]
@@ -122,13 +122,13 @@
 
         "memory": {
             "interval": 20,
-            "format": " {used:0.1f}G / {total:0.1f}G"
+            "format": " {used:0.1f}G"
         },
 
         "disk": {
             "path": "/",
             "interval": 500,
-            "format": " {used} / {total}"
+            "format": " {used}"
         },
 
         "custom/weather": {
@@ -139,7 +139,7 @@
         },
 
         "clock": {
-            "format": " {:%d.%m.%y - %I:%M:%S}",
+            "format": " {:%I:%M:%S}",
             "interval": 1,
             "tooltip-format": "{:%A, %B %d, %Y}"
         }
@@ -149,7 +149,7 @@
     {
         "output": "eDP-1",
         "position": "top",
-        "height": 30,
+        "height": 36,
         "modules-left": ["custom/powermenu", "network#wifi", "temperature"],
         "modules-center": ["sway/workspaces"],
         "modules-right": ["clock", "battery", "custom/lock", "tray"],
@@ -157,7 +157,7 @@
         "sway/workspaces": {
             "disable-scroll": true,
             "all-outputs": false,
-            "format": "{icon}  {name}",
+            "format": "{icon} {name}",
             "format-icons": {
                 "0: GAMES": "",
                 "1: MESSAGES": "",
@@ -195,7 +195,7 @@
         },
 
         "clock": {
-            "format": " {:%d.%m.%y - %I:%M:%S}",
+            "format": " {:%I:%M:%S}",
             "interval": 1,
             "tooltip-format": "{:%A, %B %d, %Y}"
         },
