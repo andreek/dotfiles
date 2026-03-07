@@ -1,5 +1,8 @@
 return {
   "preservim/nerdtree",
+	dependencies = {
+	    "ryanoasis/vim-devicons",
+	},
   init = function()
     -- NERDTree (toggle)
     vim.keymap.set("n", "<Leader>n", ":NERDTreeToggle<CR>", { silent = true, desc = "NERDTree Toggle" })
